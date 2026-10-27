@@ -5,7 +5,7 @@ from pathlib import Path
 
 from harnesscraft import interfata
 
-BAT = r'C:\Windows\system32\cmd.exe /c ""C:\HarnessCraft\Porneste_HarnessCraft.bat" "'
+BAT = r'C:\Windows\system32\cmd.exe /c ""D:\Lucru\HarnessCraft\Porneste_HarnessCraft.bat" "'
 SRV = '".venv\\Scripts\\python.exe"  -m harnesscraft.interfata'
 
 
@@ -27,7 +27,7 @@ def test_taburile_inchise_sunt_numai_ale_paginilor_programului():
     titlu = re.search(r"<title>(.*?)</title>", interfata.pagina("Candidați", "")).group(1)
     assert titlu == "Candidați — HarnessCraft" and tipar.search(titlu)
     assert tipar.search("Rezultatul - HarnessCraft - Memory usage - 37.2 MB")
-    for altul in ("GitHub - mihaistreanga/HarnessCraft: privat", "HarnessCraft-portofoliu-GitHub.md - Visual Studio Code",
+    for altul in ("GitHub - cineva/HarnessCraft: privat", "HarnessCraft-portofoliu-GitHub.md - Visual Studio Code",
                   "Conversațiile SkyRoll, de citit"):
         assert not tipar.search(altul), altul
 
@@ -81,7 +81,7 @@ def test_fereastra_serverului_porneste_micsorata_si_un_motiv_de_oprire_se_vede_p
 
 def test_fara_gitleaks_programul_nu_porneste_si_spune_de_ce(monkeypatch):
     # ca la git lipsa: o caseta cu motivul, inainte sa inchida ceva sau sa porneasca serverul
-    monkeypatch.setattr(interfata.shutil, "which", lambda p: None if p == "gitleaks" else "C:/unelte/" + p)
+    monkeypatch.setattr(interfata.shutil, "which", lambda p: None if p == "gitleaks" else "unelte/" + p)
     motive = []
     monkeypatch.setattr(interfata, "nu_porneste", lambda text: motive.append(text) or 1)
     monkeypatch.setattr(interfata, "opreste_vechi", lambda: (_ for _ in ()).throw(AssertionError("a inchis")))

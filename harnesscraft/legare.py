@@ -1,8 +1,8 @@
 """Intrebarea de legare: un commit al proiectului, ales dupa o regula fixa, pe care candidatul il explica.
 
 De ce: un proiect care trece toate verificarile fisei nu primea nicio intrebare despre el, iar intrebarile din goluri
-intreaba de ce lipseste ceva, nu daca omul a construit ce exista (rapoarte/HarnessCraft-revizie.md, imbunatatirea 1).
-Regula, incercata pe cele 36 de proiecte ale esantioanelor (rapoarte/plan-legare-si-crestere.md, verdictele autorului):
+intreaba de ce lipseste ceva, nu daca omul a construit ce exista.
+Regula, incercata pe cele 36 de proiecte ale esantioanelor (verdictele autorului):
 ultimul commit, fara imbinari, care e mai ales despre regulile pentru agent; daca nu e niciunul, commit-ul care a
 creat fisierul de reguli. Fara nota, fara model.
 """

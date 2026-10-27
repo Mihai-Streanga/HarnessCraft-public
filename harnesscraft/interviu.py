@@ -8,8 +8,8 @@ Ordinea e a interviului structurat clasic (OPM, „Structured Interviews: A Prac
 deschidere, motivatia, 4-6 arii de competenta, intrebarile recrutorului, incheierea („Mai e ceva ce ati
 vrea sa stim?”), notarea imediat dupa. Ariile vin din metoda autorului (chat si cod) si din cadrul 4D:
 de ce lucreaza cu AI, cum gandeste cu el, cum construieste, cum verifica, ce nu-i lasa, cum a invatat, cum
-raspunde de date. Intrebarile 2-6 urmeaza treptele fisei, de la 1 la 4; etica, la sfarsit, le priveste pe toate (DECIZII_INCHISE,
-14 octombrie). Planul: rapoarte/plan-interviu.md.
+raspunde de date. Intrebarile 2-6 urmeaza treptele fisei, de la 1 la 4; etica, la sfarsit, le priveste pe toate (decizia autorului,
+14 octombrie).
 """
 import hashlib
 import re
@@ -119,7 +119,7 @@ FARA_NOTA_FARA_COD = (
 
 def _amprenta():
     """Amprenta intrebarilor cu nota: un ghid se puncteaza numai cu intrebarile cu care a fost scris. Nu e un numar
-    de versiune (DECIZII_INCHISE: fara versiuni pana la sfarsitul prototipului)."""
+    de versiune (decizia autorului: fara versiuni pana la sfarsitul prototipului)."""
     text = "\n".join(f"{q[0]} {q[4]} | " + " | ".join(q[5]) for q in INTREBARI)
     return hashlib.sha256(text.encode("utf-8")).hexdigest()[:12]
 
@@ -127,7 +127,7 @@ def _amprenta():
 AMPRENTA = _amprenta()
 _BIFA = re.compile(r"^- (S\d+)\.([123]) \[(.*?)\] ", re.M)
 _AMPRENTA = re.compile(r"^<!-- ghid-interviu intrebari ([0-9a-f]+) -->$", re.M)
-# „Nivelul … Scorul”: ghidurile scrise inainte de „treapta” si „punctajul” (DECIZII_INCHISE, „Termenii”)
+# „Nivelul … Scorul”: ghidurile scrise inainte de „treapta” si „punctajul” (decizia autorului, „Termenii”)
 _NIVEL = re.compile(r"^(?:Nivelul provizoriu|Treapta provizorie) din fișă: \*\*(.+?)\*\*", re.M)
 _FISA = re.compile(r"^<!-- fisa ([\d.]+) din ([\d.]+) -->$", re.M)
 _FARA_COD = re.compile(rf"^<!-- fisa {FARA_COD} -->$", re.M)
@@ -154,7 +154,7 @@ def _din_fisa(f, principii):
 def din_fisa_actuala(text, f):
     """Ghidul cu fisa de acum: scorul (din care se face treimea portofoliului), nivelul si „Ce arata proiectul” la
     fiecare intrebare. Bifele, notitele si intrebarile despre proiect raman: o reanalizare nu sterge raspunsurile, dar
-    nici nu lasa in ghid scorul fisei vechi (Metoda: 14 din 16 in ghid, 13 in fisa, totalul calculat din 14)."""
+    nici nu lasa in ghid scorul fisei vechi (un ghid vechi pastra alt scor decat fisa refacuta, iar totalul se calcula din cel din ghid)."""
     text = _FISA.sub(f"<!-- fisa {f['total']:g} din {f['maxim']:g} -->", text, count=1)
     text = re.sub(r"^(?:Nivelul provizoriu|Treapta provizorie) din fișă: \*\*.+?\*\* \(\d+ din \d+\)",
                   lambda m: f"Treapta provizorie din fișă: **{f['nivel_nume']}** ({f['nivel'] + 1} din {len(NIVELURI)})",

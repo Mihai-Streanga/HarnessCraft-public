@@ -1,6 +1,6 @@
 """Aspectul, in tot proiectul (observatia 26 a autorului): un singur fel de buton pe rol, actiunile ca butoane,
 niciun control al browserului lasat ca atare, marginile aliniate, „pasul urmator” la sfarsit. Testele prind
-markupul si stilul; ce se vede cu ochii s-a verificat pe capturi (rapoarte/observatii-autor-interfata.md)."""
+markupul si stilul; ce se vede cu ochii s-a verificat pe capturi."""
 import re
 
 from tests.test_interfata import site  # noqa: F401 (fixture)
@@ -118,7 +118,7 @@ def test_textele_de_citit_sunt_aliniate_ca_un_document(site):
 
 
 def test_casetele_de_stare_sunt_doua_si_fiecare_la_locul_ei(site):
-    """Regula din DECIZII_INCHISE (B29, 660cabe; B6, 88a6d30): galbena („avert”), cand lipseste ceva sau nu se poate
+    """Regula decisa de autor (B29, 660cabe; B6, 88a6d30): galbena („avert”), cand lipseste ceva sau nu se poate
     schimba; cu chenar, simpla, pentru o stare hotarata; rosie numai pentru eroare. A treia caseta nu trece."""
     from pathlib import Path
     sursa = Path("harnesscraft/interfata.py").read_text(encoding="utf-8")

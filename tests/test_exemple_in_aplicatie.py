@@ -1,6 +1,6 @@
-"""Exemplele, in aceeasi aplicatie, numai de citit (rapoarte/propunere-exemple-in-aplicatie.md, „Refăcut”): „Exemple” in
+"""Exemplele, in aceeasi aplicatie, numai de citit: „Exemple” in
 bara din stanga si pe „Acasă”, lista, paginile fiecarui candidat cu legaturile ramase in exemple, campurile blocate,
-rapoartele de tiparit. Setul adevarat (20 de secunde, C:/Metoda) nu se face aici: `set_exemple.reface` e inlocuit cu un
+rapoartele de tiparit. Setul adevarat (20 de secunde, cu proiectul autorului) nu se face aici: `set_exemple.reface` e inlocuit cu un
 candidat scris direct; setul insusi il verifica tests/test_set_exemple.py."""
 import re
 import threading

@@ -80,9 +80,9 @@ def test_cuvantul_prefix_nu_e_reparatie():
 
 
 def test_termenii_numiti_de_regula():
-    linii = ["Push-ul il face `hook-ul post-commit`; vezi `.claude/hooks/sintaxa.py` si docs/INSTALARE.md.",
+    linii = ["Push-ul il face `hook-ul post-commit`; vezi `scripts/verifica.py` si docs/INSTALARE.md.",
              "`rm` nu"]
-    assert extractori.termeni(linii) == {"hook-ul post-commit", "sintaxa.py", "instalare.md"}
+    assert extractori.termeni(linii) == {"hook-ul post-commit", "verifica.py", "instalare.md"}
 
 
 def test_arhitectura_tinuta_la_zi_si_nu(depozit):
@@ -98,11 +98,11 @@ def test_arhitectura_tinuta_la_zi_si_nu(depozit):
 
 
 def test_documentul_de_arhitectura_se_recunoaste_dupa_continut_nu_dupa_nume(depozit):
-    """prima formă cerea un nume ca ARCHITECTURE; documentul Metodei are alt nume (A1, A2, A5 in runda 1)."""
+    """prima formă cerea un nume ca ARCHITECTURE; un document de arhitectura poate avea alt nume (A1, A2, A5 in runda 1)."""
     d = depozit()
-    d.commit("init", {"src/a.py": "1", "Metoda.md": "v1"})
-    d.commit("unealta noua", {"anexe/sesiune.py": "1"})
-    d.commit("metoda: unealta", {"Metoda.md": "v1\n`anexe/sesiune.py` deschide tabul"})
+    d.commit("init", {"src/a.py": "1", "Ghid.md": "v1"})
+    d.commit("unealta noua", {"unelte/export.py": "1"})
+    d.commit("ghid: unealta", {"Ghid.md": "v1\n`unelte/export.py` scrie exportul"})
     [caz] = extractori.arhitectura(istoric.citeste(d.cale), d.cale)
     assert caz["regula"]
 
@@ -111,7 +111,7 @@ def test_jurnalul_nu_tine_arhitectura_la_zi(depozit):
     d = depozit()
     d.commit("init", {"src/a.py": "1", "docs/ARCHITECTURE.md": "v1"})
     d.commit("modul nou", {"src/plata/b.py": "1"})
-    d.commit("handoff", {"handoff/HANDOFF.md": "am adaugat src/plata/"})
+    d.commit("jurnal", {"CHANGELOG.md": "am adaugat src/plata/"})
     d.commit("arhitectura, fara modul", {"docs/ARCHITECTURE.md": "v2 stil"})
     [caz] = extractori.arhitectura(istoric.citeste(d.cale), d.cale)
     assert not caz["regula"]

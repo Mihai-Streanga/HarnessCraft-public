@@ -537,7 +537,7 @@ def fisa_probei(c):
 
 # Decizia de proba: la sfarsitul interviului, recrutorul spune daca candidatul merge la proba, cu motivul; daca da, ii
 # trimite invitatia (`proba.invitatie`) si consemneaza raspunsul lui. Proba se deschide numai dupa acord. Acordul e
-# acordul de a da proba, nu temeiul prelucrarii datelor (rapoarte/cercetare-gdpr-proba.md).
+# acordul de a da proba, nu temeiul prelucrarii datelor.
 DECIZIA = "decizia-probei.json"
 
 

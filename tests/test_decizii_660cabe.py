@@ -1,11 +1,9 @@
-"""Reparatiile din a doua sesiune de decizii dupa auditul unic (rapoarte/decizii-audit-unic-660cabe.md, B5–B36): textele
+"""Reparatiile din a doua sesiune de decizii dupa auditul unic (660cabe, B5–B36): textele
 pentru recrutor, formularul probei dupa o eroare, proba inchisa care nu scrie nimic, refuzul spus ca refuz, aspectul."""
 import re
 
-import pytest
-
-from harnesscraft import candidati, fisa, interfata, termeni
-from tests.test_decizii_audit_unic import AUTO, TOATE, _candidat, _vizibil
+from harnesscraft import fisa, interfata, termeni
+from tests.test_decizii_audit_unic import TOATE, _candidat, _vizibil
 from tests.test_interfata import site  # noqa: F401 (fixture)
 from tests.test_interfata_proba import _erori, _incarca, _tabel
 
@@ -144,12 +142,3 @@ def test_cheia_schimbata_nu_spune_comisa(tmp_path):
         assert "comis" not in str(ex)  # B35
     else:
         raise AssertionError("cheia schimbată trebuia refuzată")
-
-
-@pytest.mark.privat
-def test_contract_module_spus_in_principii():
-    from pathlib import Path
-    text = Path("principii/Principii.md").read_text(encoding="utf-8")
-    assert "`candidati` (dosarele candidaților) îl importă numai `interfata`, `set_exemple` și `capturi`" in text  # B1
-    assert candidati  # importul, pentru linter
-    assert AUTO

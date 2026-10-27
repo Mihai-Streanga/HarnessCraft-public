@@ -2,7 +2,7 @@
 
 De ce: semnalele de stare din `stare.py` sunt saturate pe esantion (runda 1), iar istoricul cu regulile reparate e la
 nivelul intamplarii. Elementele de harness variaza intre proiecte si sunt chiar treptele scarii
-(principii/DECIZII_INCHISE.md, nivelul provizoriu). Fapte, fara puncte: punctele le da `fisa.py`.
+(decizia autorului, nivelul provizoriu). Fapte, fara puncte: punctele le da `fisa.py`.
 
 Ce se citeste:
   instructiunile - substanta (sectiuni, comenzi, interdictii) si prospetimea (caile citate exista);
@@ -31,12 +31,12 @@ UNELTE = (r"npm|pnpm|yarn|npx|bun|bunx|node|deno|tsc|python3?|py|pip|uv|uvx|poet
 COMANDA = re.compile(rf"^\$?\s*({UNELTE})(\s|$)")
 # CLI-ul propriu al proiectului (`arhivar review --prepare`, `graphify update .`): o unealta necunoscuta,
 # urmata de un flag sau de „.”. Corectura de citire dupa prima rulare pe esantion, inaintea oricarei
-# comparatii cu clasamentul (rapoarte/fisa-runda1.md); pragurile nu s-au schimbat.
+# comparatii cu clasamentul; pragurile nu s-au schimbat.
 COMANDA_PROPRIE = re.compile(r"^\$?\s*[a-z][\w.-]*(\s+[\w:./-]+)*\s+(-{1,2}\w[\w-]*|\.)(\s|=|$)")
 # PowerShell: un cmdlet `Verb-Substantiv` cu verbul din lista oficiala (`Get-Verb`, Windows PowerShell 5.1, plus Build si
 # Deploy din PowerShell 7), sau un script local scris cu backslash (`.\build.ps1`). Verbul din lista tine afara
-# `Content-Type` sau `X-Request-Id`. Reparat pe grupa A a rundei pe comenzile PowerShell
-# (rapoarte/propunere-comenzi-powershell.md); aliasurile (`iex`, `copy`) si atribuirile (`$X = …`) nu se citesc.
+# `Content-Type` sau `X-Request-Id`. Reparat pe grupa A a rundei pe comenzile PowerShell;
+# aliasurile (`iex`, `copy`) si atribuirile (`$X = …`) nu se citesc.
 VERBE_PS = (r"Add|Approve|Assert|Backup|Block|Build|Checkpoint|Clear|Close|Compare|Complete|Compress|Confirm|Connect|"
             r"Convert|ConvertFrom|ConvertTo|Copy|Debug|Deny|Deploy|Disable|Disconnect|Dismount|Edit|Enable|Enter|Exit|"
             r"Expand|Export|Find|Format|Get|Grant|Group|Hide|Import|Initialize|Install|Invoke|Join|Limit|Lock|Measure|"
@@ -49,8 +49,8 @@ BLOC = re.compile(r"^```[^\n]*\n(.*?)^```", re.M | re.S)
 LEGATURA = re.compile(r"\]\(([^)#\s]+)")
 INTERDICTIE =re.compile(r"\b(never|do not|don't|must not|should not|avoid|niciodat\w*|nu se|interzis\w*)\b", re.I)
 # imperativul negat romanesc („Nu adăuga…”, „**NU** modifica…”): „nu” la inceput de propozitie sau de rand de lista,
-# urmat de un cuvant; nu si „nu e”, „nu are”, „nu există”, care descriu. Reparat pe grupa A a rundei pe reguli in romana
-# (rapoarte/propunere-runda-reguli-in-romana.md); „nu se” il numara deja INTERDICTIE.
+# urmat de un cuvant; nu si „nu e”, „nu are”, „nu există”, care descriu. Reparat pe grupa A a rundei pe reguli in romana;
+# „nu se” il numara deja INTERDICTIE.
 NU_IMPERATIV = re.compile(r"(?:^[ \t>]*(?:[-*+]|\d+[.)])?[ \t]*|[.!?:;—][ \t]+)(?:\*\*|__|_)?nu(?:\*\*|__|_)?[ \t]+"
                           r"(?!(?:e|este|sunt|are|au|a|am|ai|era|există|exista|poate|pot|se|mai|doar|numai)\b)\w",
                           re.M | re.I)
@@ -67,7 +67,7 @@ HOOKS_GIT = re.compile(r"^(\.pre-commit-config\.ya?ml|\.husky/[^_][^/]*|lefthook
 TEST = re.compile(r"\b(pytest|unittest|(npm|pnpm|yarn|bun)( run)? test|(go|cargo|dotnet|mvn|gradle|gradlew|mix|swift|deno)"
                   r" test|make test|just test|zig build test|vitest|jest|rspec|phpunit|ctest|tox|nox)\b")
 MCP = re.compile(r"^(\.mcp\.json|\.cursor/mcp\.json|\.vscode/mcp\.json|\.gemini/settings\.json)$")
-# aria „la zi” (rapoarte/propuneri-la-zi-si-numele-pasului-1.md, incercarea detectorilor): regulile trimit la un document
+# aria „la zi” (incercarea detectorilor): regulile trimit la un document
 # despre arhitectura sau decizii - dupa numele lui, sau citat pe un rand care pomeneste arhitectura. Formele mai largi
 # („structura”, „design” pe rand) prindeau paragrafe fara legatura.
 DOC = re.compile(r"\.(md|mdx|rst|txt|adoc)$|^docs?/|/docs?/", re.I)

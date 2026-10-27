@@ -10,7 +10,7 @@ from pathlib import Path
 RADACINA = Path(__file__).resolve().parent.parent
 MANIFEST = RADACINA / "esantion" / "manifest.csv"
 DEPOZITE = RADACINA / "depozite"
-# runda 2 pe fisa: proiecte noi, alt clasament orb, alte clone (rapoarte/runda2-fisa.md)
+# runda 2 pe fisa: proiecte noi, alt clasament orb, alte clone
 RUNDE = {1: ("esantion", "depozite"), 2: ("esantion-runda2", "depozite-runda2")}
 
 

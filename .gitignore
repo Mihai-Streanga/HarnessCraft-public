@@ -11,10 +11,9 @@ tmp-*
 *.tmp
 
 # ——— Ale mașinii, nu ale proiectului ———
-.claude/settings.local.json
 .env
 
-# ——— Plasa pentru depozitul care pleacă pe GitHub (4.7): o cheie apare fără să anunțe ———
+# ——— Plasa pentru depozitul care pleacă pe GitHub: o cheie apare fără să anunțe ———
 *.pem
 *.key
 *.p12
@@ -50,11 +49,6 @@ depozite-powershell/
 depozite-chei/
 # Extrasul curat rămâne în git; materia primă nu.
 
-# ——— NU se ignoră ———
-# .claude/settings.json      — configurare de proiect, circulă cu depozitul
-# .claude/skills/            — metoda, circulă cu depozitul
-# .claude/hooks/             — regulile impuse determinist
-# .claude/*.py               — uneltele de măsură
 
 # datele candidatilor din interfata: oameni reali, raman pe calculator (candidati/: locul de dinainte de 15 octombrie,
 # preventiv, daca o versiune veche il recreeaza)

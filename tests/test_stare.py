@@ -41,7 +41,7 @@ def test_licenta_doar_in_subdosar_nu_conteaza(depozit):
 def test_transparenta_ai_numai_din_urme_ale_uneltelor(depozit):
     d = depozit()
     d.commit("a\n\nCo-Authored-By: Claude <noreply@anthropic.com>", {"a": "1"})
-    d.commit("b\n\nCo-authored-by: Ion Pop <ion@x.ro>", {"a": "2"})
+    d.commit("b\n\nCo-authored-by: Ion Pop <ion@exemplu.ro>", {"a": "2"})
     d.commit("am intrebat claude despre asta", {"a": "3"})
     d.commit("c\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)", {"a": "4"})
     r = stare.transparenta_ai(istoric.citeste(d.cale))

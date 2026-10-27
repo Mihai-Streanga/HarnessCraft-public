@@ -1,7 +1,7 @@
-"""Setul de date al exemplelor (rapoarte/plan-capitol-exemple.md): proiectele inventate ies pe treapta tipului lor si
+"""Setul de date al exemplelor: proiectele inventate ies pe treapta tipului lor si
 sunt aceleasi la fiecare rulare, deci cifrele capitolului se pot reface oriunde. Cifrele capitolului din manual vin
 din exemple-candidati/rezultate.json; testele cad cand setul refacut nu mai da fisierul, sau cand capitolul are o
-cifra care nu e acolo. Cazul autorului (C:/Metoda) se verifica numai pe masina lui."""
+cifra care nu e acolo. Cazul autorului se verifica numai pe masina lui."""
 import json
 import re
 
@@ -53,7 +53,7 @@ def test_setul_iese_pe_treptele_tipurilor_cu_aceleasi_commituri(tmp_path):
     assert rez["Cristina Pavel"]["fara_proba"].startswith("Fără probă: candidatul a refuzat-o")
 
 
-@pytest.mark.skipif(not AUTORUL_AICI, reason="cazul autorului: fără C:/Metoda sau fără dosarul lui, nu se reface")
+@pytest.mark.skipif(not AUTORUL_AICI, reason="cazul autorului: fără proiectul sau fără dosarul lui, nu se reface")
 def test_cazul_autorului_da_cifrele_din_fisier(tmp_path):
     rez = set_exemple.completeaza(set_exemple.construieste(tmp_path / "set"), tmp_path / "set")
     autorul = [c for c in set_exemple.rezultate(rez)["candidati"] if c["tip"] == 1]
@@ -83,9 +83,9 @@ def test_textul_spune_ce_arata_cifrele():
 def test_exemplele_spun_ce_lipseste_autorului(tmp_path, monkeypatch):
     """Intr-o clona noua, cu proiectul autorului pe calculator, lipseste numai dosarul lui (`candidaturi/` nu vine cu
     git): ecranul nu da vina pe proiect (instalarea urmata, 21 octombrie)."""
-    metoda, dosar = tmp_path / "Metoda", tmp_path / "mihai-streanga"
-    (metoda / ".git").mkdir(parents=True)
-    monkeypatch.setattr(set_exemple, "METODA", metoda)
+    proiect, dosar = tmp_path / "Metoda", tmp_path / "mihai-streanga"
+    (proiect / ".git").mkdir(parents=True)
+    monkeypatch.setattr(set_exemple, "PROIECT_AUTOR", proiect)
     monkeypatch.setattr(set_exemple, "AUTORUL", dosar)
     motiv = set_exemple.ce_lipseste_autorului()
     assert "dosarul lui nu e printre candidați" in motiv and "proiectul" not in motiv
@@ -94,5 +94,5 @@ def test_exemplele_spun_ce_lipseste_autorului(tmp_path, monkeypatch):
     dosar.mkdir()
     (dosar / "fisa.json").write_text("{}", encoding="utf-8")
     assert set_exemple.ce_lipseste_autorului() == "" and set_exemple.autorul_aici()
-    (metoda / ".git").rmdir()
+    (proiect / ".git").rmdir()
     assert set_exemple.ce_lipseste_autorului() == "proiectul lui nu e pe acest calculator"

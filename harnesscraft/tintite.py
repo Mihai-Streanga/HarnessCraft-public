@@ -1,6 +1,6 @@
 """Intrebarile despre proiect: alese de program din ce lipseste in fisa, cu texte scrise dinainte, nepunctate.
 
-Fiecare verificare a fisei are o intrebare, judecata de autor una cate una (rapoarte/plan-intrebari-tintite.md).
+Fiecare verificare a fisei are o intrebare, judecata de autor una cate una.
 Programul ia primele doua verificari picate, in `ORDINE`: importanta raspunsului si usurinta evaluatorului, decisa
 de autor pe 14 octombrie 2026. Nimic nu pleaca de pe calculator, iar acelasi
 proiect da aceleasi intrebari. Textele sunt fixate la caracter de teste: o schimbare cere iar

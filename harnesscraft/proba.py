@@ -1,4 +1,4 @@
-"""Nota probei: trei parti egale, calculate de cod (rapoarte/plan-proba.md, sectiunea 2).
+"""Nota probei: trei parti egale, calculate de cod.
 
 NECALIBRAT, ca restul: ponderi egale, alese, nu masurate. Partile, fiecare intre 0 si 1:
 - cheia: (erori gasite - semnalari gresite) / erorile de gasit, cel putin 0, din tabelul predat de candidat;
@@ -8,7 +8,7 @@ O parte lipsa face proba „incompleta”, nu zero, ca in total.py. Niciun model
 
 Proba are un cadru, acelasi pentru toti (codul de aici), si un pachet al meseriei (date: un dosar din `proba/`, cu
 tema, cheia, amprenta ei si `pachet.json`). Pachetul da cuvintele bifelor, locurile si campurile tabelului de raspuns si
-intrebarea 2 a discutiei (capcana). Decizia: principii/DECIZII_INCHISE.md; rapoarte/propunere-proba-alte-meserii.md.
+intrebarea 2 a discutiei (capcana). Decizia autorului.
 
 Potrivirea cu cheia se face pe loc, nu pe rand (regula aprobata de autor, 15 octombrie; la payroll locul e angajatul):
 o eroare e gasita daca locul ei are un rand pe un camp in care se vede eroarea; un loc fara eroare semnalat, sau unul
@@ -194,7 +194,7 @@ _CAMP = re.compile(r"^\*\*(.+?):\*\* ?(.*)$")
 _TEMA = re.compile(r"^Tema: `proba/([\w.-]+)`", re.M)
 
 
-# Ce i se spune candidatului inainte de proba, ca sa poata accepta sau refuza (rapoarte/cercetare-gdpr-proba.md):
+# Ce i se spune candidatului inainte de proba, ca sa poata accepta sau refuza:
 # ce face, cat dureaza, ce preda, cum se evalueaza si ce se intampla cu ce preda. Ce tine de firma (cine prelucreaza
 # datele, temeiul, cat le pastreaza) aplicatia nu stie: ramane loc gol, intre paranteze drepte, de completat de firma.
 # Textul, aprobat de autor pe 15 octombrie 2026; fixat la caracter in tests/date/invitatia-probei.md.

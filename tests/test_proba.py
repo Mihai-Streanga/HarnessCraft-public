@@ -29,7 +29,7 @@ def _predat(tmp_path, randuri):
 
 
 def test_textele_bifelor_sunt_cele_aprobate_de_autor_la_caracter():
-    # o schimbare aici cere iar acordul autorului (rapoarte/plan-proba.md, sectiunea 2)
+    # o schimbare aici cere iar acordul autorului
     assert _randare() == TEXTE.read_text(encoding="utf-8")
 
 
@@ -135,7 +135,7 @@ def test_nota_intra_in_total_ca_fractie():
     assert total.total((16, 16), 4, n["nota"])["total"] == 100
 
 
-# ── Cadrul si pachetul meseriei (rapoarte/propunere-proba-alte-meserii.md, aprobata de autor pe 15 octombrie) ──
+# ── Cadrul si pachetul meseriei (aprobate de autor pe 15 octombrie) ──
 
 def pachet_de_proba(dosar):
     """Un al doilea pachet, inventat pentru test (un text de campanie): cadrul trebuie sa mearga si pe el. Copiaza si

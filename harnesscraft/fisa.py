@@ -1,7 +1,7 @@
 """Fisa dinaintea interviului: scor 0-4 pe principiile schemei, nivelul provizoriu, dovezi, goluri.
 
-NECALIBRAT. Regulile s-au scris si comis inaintea rularii pe esantion (principii/DECIZII_INCHISE.md,
-nivelul provizoriu; rapoarte/plan-fisa-interviu.md). Calculeaza numai codul; un model nu da nivelul.
+NECALIBRAT. Regulile s-au scris si comis inaintea rularii pe esantion (decizia autorului,
+nivelul provizoriu). Calculeaza numai codul; un model nu da nivelul.
 
 Nivelul e o scara cu porti, nu o suma (ideea din `harness-score`): fiecare treapta o cere pe cea
 dinainte, iar fisa spune ce lipseste pentru urmatoarea. Principiile fara semnal mecanic raman goluri,
@@ -12,7 +12,7 @@ from pathlib import Path
 
 NIVELURI = ["prompter", "configurator", "constructor de sistem", "metodolog (provizoriu)"]
 # scara cu teste automate: verificarea cere teste care ruleaza automat (CI sau un hook cu o comanda de test), nu CI anume.
-# Decisa dupa prima rulare, cand proiectele autorului ieseau oprite numai de CI (DECIZII_INCHISE).
+# Decisa dupa prima rulare, cand proiectele autorului ieseau oprite numai de CI (decizia autorului).
 SCARA = 2
 MIN_SECTIUNI = 2      # un fisier cu o singura sectiune e o notita, nu o structura
 MIN_COMENZI = 1
@@ -80,12 +80,12 @@ def principii(s, h):
             ("interdicții", i["interdictii"] >= MIN_INTERDICTII, f"{i['interdictii']} interdicții"),
             ("structură", bool(structura), f"{len(h['skills'])} skills, {len(h['comenzi'])} comenzi, "
                                            f"{len(h['subagenti'])} subagenți, {len(h['reguli_scoped'])} reguli scoped")]
-    # punctajul B: patru verificari da / nu pe fiecare arie, cate un punct (DECIZII_INCHISE, 14 octombrie 2026)
+    # punctajul B: patru verificari da / nu pe fiecare arie, cate un punct (decizia autorului, 14 octombrie 2026)
     citate, lipsa = i["cai_citate"], i["cai_lipsa_numar"]
     destule = citate >= MIN_CAI
     parte = lipsa / citate if citate else 1.0
     lipsa_txt = f"; lipsă: {', '.join(f'`{c}`' for c in i['cai_lipsa'][:3])}" if i["cai_lipsa"] else ""
-    # patru verificari diferite, nu trei praguri ale aceleiasi masuratori (DECIZII_INCHISE, aria „la zi”)
+    # patru verificari diferite, nu trei praguri ale aceleiasi masuratori (decizia autorului, aria „la zi”)
     docs, titluri, arbore = i["documente_arhitectura"], i["titluri_organizare"], i["arbore_dosare"]
     organizare = [f"„{t}”" for t in titluri[:3]] + (["arbore de dosare"] if arbore else [])
     arh = [("cel puțin 3 căi citate", destule, f"{citate} căi citate"),
@@ -159,7 +159,7 @@ def randare(f):
     return "\n".join(r)
 
 
-# ── Pentru recrutor: aceleasi cifre si reguli, alte cuvinte (rapoarte/plan-fisa-pentru-recrutor.md) ──
+# ── Pentru recrutor: aceleasi cifre si reguli, alte cuvinte ──
 # Un termen tehnic apare numai in paranteza, dupa explicatia lui; istoricul (in afara scorului, picat la nivelul
 # intamplarii) nu apare. Redarea tehnica de mai sus ramane cea din terminal.
 

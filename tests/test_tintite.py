@@ -22,7 +22,7 @@ def _randare():
 
 
 def test_textele_si_ordinea_sunt_cele_aprobate_de_autor_la_caracter():
-    # o schimbare aici cere iar acordul autorului; apoi se rescrie fisierul (rapoarte/plan-intrebari-tintite.md)
+    # o schimbare aici cere iar acordul autorului; apoi se rescrie fisierul
     assert _randare() == TEXTE.read_text(encoding="utf-8")
 
 

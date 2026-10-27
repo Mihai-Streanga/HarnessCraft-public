@@ -1,4 +1,4 @@
-# .gitleaks.toml — se copiaza in radacina proiectului (metoda, 4.7, pasul 3).
+# .gitleaks.toml — se copiaza in radacina proiectului.
 #
 # De ce: `generic-api-key` ia ID-ul unui model drept cheie. Pe Agent 051,
 # `MODEL_TOKENIZATOR = "claude-haiku-4-5-20251001"` a dat 2 gasiri (6 oct. 2026).

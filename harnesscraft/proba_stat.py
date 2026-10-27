@@ -1,6 +1,6 @@
 """Statul de plata al probei: o firma inventata, 22 de angajati inventati, septembrie 2026, cu greseli plantate.
 
-Regulile si sursele lor: `rapoarte/proba-reguli-si-erori.md` (citite pe 15 octombrie 2026). Erorile, aprobate de autor
+Regulile si sursele lor s-au citit pe 15 octombrie 2026. Erorile, aprobate de autor
 in aceeasi zi: 5 de gasit (E1-E5) si una plantata care pare gresita, dar e corecta (C). Fiecare greseala sta pe alt
 angajat si se propaga in coloanele care decurg din ea, ca intr-un motor de salarii real.
 

@@ -5,6 +5,6 @@ requires-python = ">=3.12"
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
-# `privat`: testul cere ce ramane in depozitul privat (principiile, esantioanele); in copia publica, fara `.claude/`, se
-# sare (tests/conftest.py, rapoarte/plan-copie-publica.md)
+# `privat`: testul cere ce ramane in depozitul privat (principiile, esantioanele); in copia publica se
+# sare (tests/conftest.py)
 markers = ["privat: cere fisiere care raman in depozitul privat"]

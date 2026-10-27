@@ -1,4 +1,4 @@
-"""Reparatiile din sesiunea de decizii dupa auditul unic (rapoarte/decizii-audit-unic.md): decizia salvata la bifa,
+"""Reparatiile din sesiunea de decizii dupa auditul unic: decizia salvata la bifa,
 numele bifei nedate, invitatia, proba nedata, „Cum folosesc” peste tot, lista dupa total, conversatiile numarate la
 fel, datele in forma omului, alegerea proiectului, scrierea sigura si salvarile deodata."""
 import json
@@ -117,13 +117,14 @@ def test_semnul_demonstrativ_si_pe_rapoarte(site):
     assert "· demonstrativ" in site.get("/rapoarte/document?toti=1&fel=lista")[1].replace("&nbsp;", " ")
 
 
-def test_alegerea_proiectului_din_fereastra_windows(site, monkeypatch):
-    monkeypatch.setattr(interfata, "alege_pe_calculator", lambda bundle=False: "C:\\Proiecte\\x.bundle" if bundle else "C:\\Proiecte\\x")
-    assert json.loads(site.post("/nou/alege", {"fel": "dosar"})[2]) == {"cale": "C:\\Proiecte\\x"}
-    assert json.loads(site.post("/nou/alege", {"fel": "bundle"})[2]) == {"cale": "C:\\Proiecte\\x.bundle"}
+def test_alegerea_proiectului_din_fereastra_windows(site, monkeypatch, tmp_path):
+    ales_dosar, ales_bundle = str(tmp_path / "x"), str(tmp_path / "x.bundle")
+    monkeypatch.setattr(interfata, "alege_pe_calculator", lambda bundle=False: ales_bundle if bundle else ales_dosar)
+    assert json.loads(site.post("/nou/alege", {"fel": "dosar"})[2]) == {"cale": ales_dosar}
+    assert json.loads(site.post("/nou/alege", {"fel": "bundle"})[2]) == {"cale": ales_bundle}
     corp = site.get("/nou")[1]
     assert 'data-alege="dosar"' in corp and 'data-alege="bundle"' in corp and ".bundle" in corp
-    corp = site.post("/nou", {"nume": "Ana", "sursa": "C:/nu-exista-deloc"})[2]
+    corp = site.post("/nou", {"nume": "Ana", "sursa": (tmp_path / "nu-exista-deloc").as_posix()})[2]
     assert 'name="sursa"' in corp and 'class="camp-gresit"' in corp
 
 
@@ -180,16 +181,16 @@ def test_o_refacere_picata_a_exemplelor_lasa_setul_de_dinainte(tmp_path, monkeyp
 def test_cazul_autorului_se_reconstruieste_pe_commitul_de_azi(tmp_path, monkeypatch):
     import subprocess
     from harnesscraft import set_exemple
-    metoda, autorul = tmp_path / "Metoda", tmp_path / "autorul"
-    metoda.mkdir()
+    proiect, autorul = tmp_path / "Metoda", tmp_path / "autorul"
+    proiect.mkdir()
     autorul.mkdir()
-    git = [*set_exemple.GIT, "-C", str(metoda)]
+    git = [*set_exemple.GIT, "-C", str(proiect)]
     subprocess.run([*git, "init", "-q"], check=True)
-    (metoda / "CLAUDE.md").write_text("# reguli\n", encoding="utf-8")
+    (proiect / "CLAUDE.md").write_text("# reguli\n", encoding="utf-8")
     subprocess.run([*git, "add", "-A"], check=True)
     subprocess.run([*git, "-c", "user.name=t", "-c", "user.email=t@example.com", "commit", "-q", "-m", "azi"], check=True)
     (autorul / "fisa.json").write_text(json.dumps({"commit": "8a2258ae" + "0" * 32}), encoding="utf-8")
-    monkeypatch.setattr(set_exemple, "METODA", metoda)
+    monkeypatch.setattr(set_exemple, "PROIECT_AUTOR", proiect)
     monkeypatch.setattr(set_exemple, "AUTORUL", autorul)
     d = set_exemple.metoda(tmp_path / "proiecte")
     azi = subprocess.run([*git, "rev-parse", "HEAD"], capture_output=True, text=True).stdout.strip()

@@ -1,4 +1,4 @@
-"""Contractul de module (principii/Principii.md, §2; rapoarte/decizii-audit-unic.md, B6): calculul nu importa
+"""Contractul de module (B6): calculul nu importa
 ecranul si dosarele; numai `capturi` importa `interfata`."""
 import ast
 from pathlib import Path

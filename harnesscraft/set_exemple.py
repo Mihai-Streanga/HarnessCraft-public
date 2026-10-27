@@ -1,4 +1,4 @@
-"""Setul de date al exemplelor: capitolul din manual si capturile (rapoarte/plan-capitol-exemple.md).
+"""Setul de date al exemplelor: capitolul din manual si capturile.
 
 Numele celor cinci sunt inventate de agent, fara sursa (prenume si nume obisnuite, combinate): orice potrivire cu o
 persoana reala e intamplatoare. E-mailurile lor sunt pe example.com, domeniu rezervat pentru exemple.
@@ -9,7 +9,7 @@ portofoliu ale celor inventati le face scriptul, cu autor, mesaje si date fixe: 
 deci aceleasi cifre. Treapta o calculeaza fisa; scriptul se opreste daca iese alta decat cea ceruta tipului.
 
 Apoi `completeaza`: raspunsurile, bifele, decizia de proba, acordul si tabelul predat, din `exemple-candidati/«id».md`
-(scrise de agent; bifele, date de agent la cererea autorului, DECIZII_INCHISE), trecute tot prin functiile butoanelor.
+(scrise de agent; bifele, date de agent la cererea autorului), trecute tot prin functiile butoanelor.
 Autorul vine din dosarul lui: ghidul, decizia, tabelul si foaia probei de acolo.
 """
 import json
@@ -27,8 +27,7 @@ from harnesscraft.total import PLAFON_FARA_COD, PONDERE
 SET = RADACINA / "tmp-set-exemple"
 SURSE = RADACINA / "exemple-candidati"
 REZULTATE = SURSE / "rezultate.json"  # cifrele capitolului din manual, scrise de `set-exemple`
-METODA = Path("C:/Metoda")
-SKYROLL = Path("C:/SkyRoll")  # programul probei autorului: numai fisa probei, fara nota
+PROIECT_AUTOR = RADACINA.parent / "Metoda"  # proiectul autorului, langa acesta, pe masina lui
 AUTORUL = RADACINA / "candidaturi" / "finalizate" / "mihai-streanga"  # citit, nu scris
 _CAMP = re.compile(r"^\*\*(.+?):\*\* ?(.*)$", re.M)
 _RAND_TABEL = re.compile(r"^\| (\d+) \| (.+?) \| (.+?) \| (.+?) \| (.*?) \|$", re.M)
@@ -327,14 +326,14 @@ def proiect(cheie, proiecte):
 
 def metoda(proiecte):
     """Proiectul autorului, la commitul fisei din dosarul lui: aceleasi cifre ca in demonstratie. Cand commitul nu mai
-    e in C:/Metoda (istoricul metodei rescris), cazul se reconstruieste pe commitul de azi: cazul autorului nu lipseste
-    pe masina lui (decizia autorului, 21 octombrie 2026). None pe o masina fara C:/Metoda sau fara dosarul autorului."""
+    e in proiect (istoricul rescris), cazul se reconstruieste pe commitul de azi: cazul autorului nu lipseste
+    pe masina lui (decizia autorului, 21 octombrie 2026). None pe o masina fara proiectul sau fara dosarul autorului."""
     f = AUTORUL / "fisa.json"
-    if not (METODA / ".git").exists() or not f.exists():
+    if not (PROIECT_AUTOR / ".git").exists() or not f.exists():
         return None
     commit = json.loads(f.read_text(encoding="utf-8"))["commit"]
     d = proiecte / "metoda"
-    subprocess.run([*GIT, "clone", "-q", str(METODA), str(d)], check=True, capture_output=True)
+    subprocess.run([*GIT, "clone", "-q", str(PROIECT_AUTOR), str(d)], check=True, capture_output=True)
     if subprocess.run([*GIT, "-C", str(d), "cat-file", "-e", f"{commit}^{{commit}}"], capture_output=True).returncode == 0:
         _git(d, "checkout", "-q", commit)
     return d
@@ -352,7 +351,7 @@ def construieste(radacina=SET, cu_autorul=True):
         if cheie == "metoda":
             p = metoda(proiecte) if cu_autorul else None
             if p is None:
-                rez.append({"tip": tip, "nume": nume, "sarit": "fără C:/Metoda sau fără dosarul autorului"
+                rez.append({"tip": tip, "nume": nume, "sarit": "fără proiectul sau fără dosarul autorului"
                             if cu_autorul else "cerut"})
                 continue
         else:
@@ -450,7 +449,7 @@ def ce_lipseste_autorului():
     """Motivul pentru care cazul 1 se sare, spus pe ecranul „Exemple”; gol cand nu lipseste nimic. Intr-o clona noua
     lipseste dosarul: `candidaturi/` nu vine cu git, se aduce din copia de siguranta (docs/INSTALARE.md)."""
     lipsa = []
-    if not (METODA / ".git").exists():
+    if not (PROIECT_AUTOR / ".git").exists():
         lipsa.append("proiectul lui nu e pe acest calculator")
     if not (AUTORUL / "fisa.json").exists():
         lipsa.append("dosarul lui nu e printre candidații de pe acest calculator; vine din copia de siguranță a "
@@ -505,7 +504,7 @@ def rezultate(rez):
 
 
 def scrie_rezultate(rez, cale=REZULTATE):
-    """`rezultate.json`, comis. Fara C:/Metoda, cazul autorului ramane cel scris inainte, pe masina lui."""
+    """`rezultate.json`, comis. Fara proiectul lui, cazul autorului ramane cel scris inainte, pe masina lui."""
     nou = rezultate(rez)
     tipuri = {c["tip"] for c in nou["candidati"]}
     if cale.exists():

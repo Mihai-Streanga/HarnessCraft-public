@@ -1,4 +1,4 @@
-"""Reparatiile din a treia sesiune de decizii dupa auditul unic (rapoarte/decizii-audit-unic-88a6d30.md, B2–B25): textele
+"""Reparatiile din a treia sesiune de decizii dupa auditul unic (88a6d30, B2–B25): textele
 dintre ghilimele, puse intocmai (B1), refuzul spus o data, jurnalul cu termenii recrutorului, campul gresit cu cursorul,
 exemplele care nu scot omul din ele, lista celor alesi, caile in forma din Explorer, ajutorul si la stergere. B2, B3, B10,
 B17, B18, B21: in testele mai vechi, aduse la textul nou; B6: tests/test_aspect.py; B26: tests/test_plasa_ecrane.py.
@@ -60,8 +60,8 @@ def test_auditul_spune_media_si_proba_ca_pe_rezultat(site, tmp_path):
     assert ", adică " in text and " din 33,3" in text and "→ × 33,3" not in text
 
 
-def test_caile_in_forma_din_explorer(site):
-    assert interfata.cale("C:/a/b") == f"C:{BS}a{BS}b"  # B13
+def test_caile_in_forma_din_explorer(site, tmp_path):
+    assert interfata.cale((tmp_path / "a").as_posix()) == str(tmp_path / "a").replace("/", BS)  # B13
     assert interfata.cale("https://github.com/x/y.git") == "https://github.com/x/y.git"
     _candidat(site, bife=TOATE)
     win = site.proiect.replace("/", BS)

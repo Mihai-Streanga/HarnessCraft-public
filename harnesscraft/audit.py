@@ -1,6 +1,6 @@
 """Jurnalul candidatului: urma fiecarui pas, scrisa de program pe loc, din care se citeste raportul de audit.
 
-Decizia autorului (15 octombrie 2026, principii/DECIZII_INCHISE.md): raportul de audit spune cum s-a ajuns la rezultat,
+Decizia autorului (15 octombrie 2026): raportul de audit spune cum s-a ajuns la rezultat,
 iar il scrie codul dintr-un jurnal tinut pe loc, nu un model la sfarsit. Jurnalul doar creste: un rand JSON pe intrare,
 in `jurnal.jsonl`, langa celelalte fisiere ale candidatului. Fiecare rand spune ora, pasul, cine (programul sau
 recrutorul), ce s-a intamplat, versiunea programului care rula si, unde e cazul, starea bifelor dupa schimbare: asa se

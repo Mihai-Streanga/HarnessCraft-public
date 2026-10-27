@@ -1,4 +1,4 @@
-"""Partea de istoric pe esantion, urmarita separat de scor (datoria 1; principii/DECIZII_INCHISE.md).
+"""Partea de istoric pe esantion, urmarita separat de scor (datoria 1).
 
 NU intra in `esantion/scor.json` si nu se aduna la totalul etapei 1. Se compara cu clasamentul orb
 dupa aceeasi regula ca scorul (`ipoteza.py`), ca autorul sa decida daca intra in versiunea urmatoare.

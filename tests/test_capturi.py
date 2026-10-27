@@ -1,4 +1,4 @@
-"""Capturile din manual (rapoarte/plan-capturi-manual.md): fiecare ecran din „Ecranele și butoanele” are figura lui, iar
+"""Capturile din manual: fiecare ecran din „Ecranele și butoanele” are figura lui, iar
 fiecare imagine din manual e pe disc si se trimite. Daca o captura e veche (codul ecranelor schimbat de atunci) nu se
 verifica aici, ar cadea la orice schimbare de ecran: `py -m harnesscraft.capturi --verifica`, inaintea copiei publice."""
 import re

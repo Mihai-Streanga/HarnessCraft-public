@@ -12,7 +12,7 @@ Regulile, forma reparată (pragurile sunt parametri, ca testele sa le poata schi
                putin `prag` fisiere de cod) e urmata, in cel mult `k` commit-uri, de un document
                (nu jurnal) care adauga un rand ce numeste dosarul sau fisierul schimbat.
 
-De ce forma reparată: prima formă a fost de acord cu autorul in 9 din 20 de cazuri (`rapoarte/verdicte-comparatie.md`).
+De ce forma reparată: prima formă a fost de acord cu autorul in 9 din 20 de cazuri.
 Cicatricea din prima formă se aprindea la orice „fix” din apropiere, chiar fara legatura cu regula;
 arhitectura din prima formă recunostea documentul numai dupa nume, iar la Metoda documentul are alt nume.
 Ordinea document-cod a iesit din etapa 1: autorul nu o poate judeca din istoric, deci nu are

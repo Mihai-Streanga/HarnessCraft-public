@@ -80,8 +80,8 @@ def transparenta_ai(commits):
 
 
 # o gasire „de proba”: un fisier de teste, exemple, fixtures, mock-uri, demo sau documentatie, un model (`.env.example`)
-# ori un text, sau o valoare-model. Se numara separat si nu scade punctul. Regula scrisa inaintea rundei pe chei
-# (rapoarte/propunere-ce-nu-vede-fisa.md, „Cheile: protocolul”); nu se verifica daca o cheie e vie.
+# ori un text, sau o valoare-model. Se numara separat si nu scade punctul. Regula scrisa inaintea rundei pe chei;
+# nu se verifica daca o cheie e vie.
 CALE_DE_PROBA = re.compile(r"(^|/)(tests?|__tests__|spec|specs|testdata|test-data|examples?|samples?|fixtures?|mocks?|"
                            r"demo|stubs?|docs?)(/|$)|[._-](test|spec)s?\.[^/]+$|_test\.[^/]+$|\.(example|sample)$|"
                            r"(^|/)[^/]*\.(example|sample)\.[^/]+$|\.(md|mdx|rst|txt|adoc)$", re.I)

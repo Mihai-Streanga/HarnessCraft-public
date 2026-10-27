@@ -214,15 +214,15 @@ Ce nu se vede: nimic. Nu doar un link, nu mai există.
 
 
 def test_la_zi_trimiterea_la_arhitectura_si_organizarea_fara_zgomotul_din_proba():
-    # formele largi prindeau aceste randuri in proba pe esantion (rapoarte/propuneri-la-zi-si-numele-pasului-1.md)
+    # formele largi prindeau aceste randuri in proba pe esantion
     zgomot = """This version has breaking changes: file structure may differ, read `node_modules/next/dist/docs/`.
 Keep the structural type in `src/types.ts`; design notes live in `NOTES.md`.
 ## Structured output
 """
     assert documente_arhitectura(zgomot) == [] and organizarea(zgomot) == ([], False)
     bun = """For internal architecture, see [the doc](docs/intern.md).
-| când se discută arhitectura | `principii/P.md` |
-Decizii: `principii/DECIZII_INCHISE.md`, `docs/adr/0001-db.md`, `ARCHITECTURE.md`.
+| când se discută arhitectura | `ghid/P.md` |
+Decizii: `ghid/DECIZII.md`, `docs/adr/0001-db.md`, `ARCHITECTURE.md`.
 ## Project Structure ##
 ```
 src/
@@ -231,7 +231,7 @@ src/
 ```
 """
     assert documente_arhitectura(bun) == ["ARCHITECTURE.md", "docs/adr/0001-db.md", "docs/intern.md",
-                                          "principii/DECIZII_INCHISE.md", "principii/P.md"]
+                                          "ghid/DECIZII.md", "ghid/P.md"]
     assert organizarea(bun) == (["Project Structure"], True)
 
 

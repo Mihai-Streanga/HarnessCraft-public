@@ -9,7 +9,7 @@ PRIVAT = os.path.isdir(os.path.join(os.path.dirname(__file__), "..", ".claude"))
 
 
 def pytest_collection_modifyitems(items):
-    """In copia publica (fara `.claude/`) testele `privat` se sar, cu motivul spus; in depozitul privat ruleaza toate."""
+    """In copia publica testele `privat` se sar, cu motivul spus; in depozitul privat ruleaza toate."""
     if PRIVAT:
         return
     sari = pytest.mark.skip(reason="cere fisiere care raman in depozitul privat (principiile, esantioanele)")

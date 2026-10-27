@@ -68,7 +68,7 @@ def interviu_scor():
 
 
 def set_exemple():
-    """Setul de date al exemplelor, refacut de la zero (rapoarte/plan-capitol-exemple.md)."""
+    """Setul de date al exemplelor, refacut de la zero."""
     from harnesscraft import set_exemple as s
     sys.stdout.reconfigure(encoding="utf-8")  # numele si treptele au diacritice; consola Windows nu e UTF-8
     rez = s.reface()

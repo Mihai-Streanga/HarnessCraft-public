@@ -1,4 +1,4 @@
-"""Capturile de ecran din manual (rapoarte/plan-capturi-manual.md, „Pus la zi pentru setul de exemple”).
+"""Capturile de ecran din manual.
 
 Aplicatia porneste in acest proces, pe alt port decat 8765 (instanta deschisa a recrutorului ramane), pe setul
 exemplelor (tmp-set-exemple/); Chrome-ul instalat, prin Playwright, face cate o captura pentru fiecare ecran din

@@ -1,4 +1,4 @@
-"""Plasa pe ecrane (B38, rapoarte/decizii-audit-unic-660cabe.md): porneste de la `/`, urmeaza legaturile de pe aceeasi
+"""Plasa pe ecrane (B38, 660cabe): porneste de la `/`, urmeaza legaturile de pe aceeasi
 gazda si trece textul vizibil al fiecarei pagini prin plasele textului pentru recrutor. O pagina noua sau o stare noua
 intra singura, fara sa-i aleaga cineva adresa. Ce nu acopera: textul candidatilor nu se desparte de al programului decat
 pe datele de proba cunoscute de aici; erorile intra numai prin POST-urile scrise mai jos."""
@@ -16,7 +16,7 @@ PLASE = {
     "o valoare a programului (True / False / None)": re.compile(r"\b(True|False|None)\b"),
     "numele unei stări scris ca atare": re.compile(r"(?<![(\w-])in-analiza\b(?!\))"),
     "punct urmat de punct și virgulă": re.compile(r"\.;"),
-    # B26 (rapoarte/decizii-audit-unic-88a6d30.md): ce cauta `/utilizare` inca de mana
+    # B26 (88a6d30): ce cauta `/utilizare` inca de mana
     "un cod în afara parantezei „(cod …)”": re.compile(r"(?<!cod )\b(?=[0-9a-f]*\d)(?=[0-9a-f]*[a-f])[0-9a-f]{7,64}\b"),
     "o cheie a programului (S1.1, C1)": re.compile(r"\b[SC]\d+(?:\.\d+)?\b"),
     "numele bifei „fără proiect cu cod” scris ca atare": re.compile(r"\bfara-cod\b"),
@@ -86,14 +86,15 @@ def test_toate_ecranele_unui_candidat_fara_semne(site, tmp_path):
     assert gasite == {}
 
 
-def test_erorile_fara_semne(site):
+def test_erorile_fara_semne(site, tmp_path):
     _candidat(site)
     site.post("/c/ana/decizia", {"decizia": "da"})
+    lipsa = (tmp_path / "nu-exista-deloc").as_posix()
     erori = [site.post("/nou", {"nume": "Ion", "sursa": ""})[2],
-             site.post("/nou", {"nume": "Ion", "sursa": "C:/nu-exista-deloc"})[2],
+             site.post("/nou", {"nume": "Ion", "sursa": lipsa})[2],
              site.post("/c/ana/proba/acord", {"raspuns": "da", "data": "31.02.2026", "cum": "pe e-mail"})[2],
              site.post("/c/ana/proba/acord", {"data": "21.10.2026", "cum": "pe e-mail"})[2],
              site.post("/c/ana/sterge", {"nume": "Altcineva"})[2]]
     for html in erori:
         assert "Nu s-a putut." in html
-        assert _plase(_text(html, site.proiect).replace("C:/nu-exista-deloc", " ")) == []
+        assert _plase(_text(html, site.proiect).replace(lipsa, " ")) == []

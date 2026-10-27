@@ -1,4 +1,4 @@
-"""Intrebarea de legare: regula care alege commit-ul (rapoarte/plan-legare-si-crestere.md, verdictele autorului pe
+"""Intrebarea de legare: regula care alege commit-ul (verdictele autorului pe
 trei cazuri) si locul ei in partea IV a ghidului, citit si de raport."""
 from pathlib import Path
 

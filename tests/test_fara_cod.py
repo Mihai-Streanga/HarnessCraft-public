@@ -36,7 +36,7 @@ def test_candidatul_fara_cod_cere_motivul_si_nu_are_ce_analiza(tmp_path):
     with pytest.raises(ValueError, match="motivul"):
         candidati.nou("Ana", "", dosar=d, fara_cod="  ")
     with pytest.raises(ValueError, match="Alegi una"):
-        candidati.nou("Ana", "C:/ceva", dosar=d, fara_cod="lucrează în chat")
+        candidati.nou("Ana", str(tmp_path / "ceva"), dosar=d, fara_cod="lucrează în chat")
     with pytest.raises(ValueError, match="nu are proiect cu cod"):
         candidati.nou("Ana", "", dosar=d)  # fara proiect si fara bifa: eroarea spune de bifa
     c = candidati.citeste(candidati.nou("Ana", "", dosar=d, fara_cod="lucrează numai în chat"), d)

@@ -43,7 +43,7 @@ ZILE_BRUSC = 14  # fereastra, in zile, nu fractie din istoric: proiectele vechi 
 
 def crestere(drum):
     """Punctajul din urma cu `ZILE_BRUSC` zile fata de cel de la capat, cand mai mult de jumatate a aparut in fereastra;
-    altfel None. Fara nota: aduce numai o intrebare in ghid (rapoarte/plan-legare-si-crestere.md, decizia autorului)."""
+    altfel None. Fara nota: aduce numai o intrebare in ghid (decizia autorului)."""
     if not drum or not drum[-1]["total"]:
         return None
     capat = date.fromisoformat(drum[-1]["ziua"])

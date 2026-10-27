@@ -183,7 +183,7 @@ def test_mesajul_pentru_candidat_e_text_simplu_care_se_deschide_oriunde(site):
     assert "Orele suplimentare se plătesc cu sporul minim din lege." in text and "75" not in text
 
 
-def test_fisa_probei_trimite_la_discutie_nu_la_interviu_si_poarta_numele_programului(site):
+def test_fisa_probei_trimite_la_discutie_nu_la_interviu_si_poarta_numele_programului(site, tmp_path):
     # gasit la incercarea cu un program facut anume, 15 octombrie: „Cum o folosesti” trimitea la interviu, iar titlul
     # avea calea (la un link, calea clonei din dosarul candidatului)
     from pathlib import Path
@@ -196,7 +196,7 @@ def test_fisa_probei_trimite_la_discutie_nu_la_interviu_si_poarta_numele_program
     assert f"Fișa proiectului probei — „{Path(site.proiect).name}”" in fisa
     for sursa, nume in (("https://github.com/ana/stat-septembrie.git", "stat-septembrie"),
                         ("https://github.com/ana/stat-septembrie/", "stat-septembrie"),
-                        (r"C:\Lucru\stat", "stat"), ("C:/Lucru/stat/", "stat")):
+                        (str(tmp_path / "stat"), "stat"), ((tmp_path / "stat").as_posix() + "/", "stat")):
         assert interfata._nume_sursei(sursa) == nume
 
 

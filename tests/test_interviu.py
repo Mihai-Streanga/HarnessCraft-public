@@ -109,7 +109,7 @@ def test_ghid_scris_cu_alte_intrebari_sau_rand_sters_refuzate(depozit):
 
 
 def test_intrebarile_urmeaza_treptele_fisei_iar_etica_e_ultima(depozit):
-    # DECIZII_INCHISE, 14 octombrie: intrebarile 2-6 merg pe treptele 1-4; etica le priveste pe toate, la sfarsit
+    # decizia autorului, 14 octombrie: intrebarile 2-6 merg pe treptele 1-4; etica le priveste pe toate, la sfarsit
     assert [q[2] for q in interviu.INTREBARI][5:] == ["învățarea", "responsabilitatea pentru date și etica"]
     assert set(interviu.TREAPTA) == {q[0] for q in interviu.INTREBARI}
     g = _ghid(depozit)

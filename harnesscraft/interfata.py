@@ -1,5 +1,5 @@
-"""Interfata prototipului: o pagina web locala, servita din biblioteca standard Python (varianta B din
-rapoarte/plan-interfata.md). Pornire: `Porneste_HarnessCraft.bat`, sau `python -m harnesscraft.interfata`.
+"""Interfata prototipului: o pagina web locala, servita din biblioteca standard Python.
+Pornire: `Porneste_HarnessCraft.bat`, sau `python -m harnesscraft.interfata`.
 
 Raspunde numai pe acest calculator (127.0.0.1) si nu cheama nimic din afara. Nu calculeaza nimic al ei: fiecare buton cheama
 o functie din `candidati.py`, care cheama aceleasi functii ca terminalul. Aspectul e cel din SkyRoll.
@@ -1101,7 +1101,6 @@ reali.</li><li>Vede munca din istoricul proiectului (git); ce s-a lucrat în afa
 
 # Capturile din manual: cate una sub titlul fiecarui ecran din „Ecranele și butoanele”, facute de `capturi.py` pe setul
 # exemplelor (tmp-set-exemple/), nu pe candidatii recrutorului. Titlul: (fisierul din static/manual/, legenda).
-# rapoarte/plan-capturi-manual.md, „Pus la zi pentru setul de exemple”
 CAPTURI_MANUAL = {
     "Acasă": ("acasa", "Acasă, cu candidații din exemple în lucru."),
     "Istoricul candidaților": ("candidati", "Istoricul candidaților, cu căutarea deasupra listei."),
@@ -1669,7 +1668,7 @@ def document(dosar, q):
 # „Exemple”, in bara din stanga: cei sase din capitolul manualului, cu toti pasii si rapoartele, din setul din
 # tmp-set-exemple/ (set_exemple.reface), facut la primul clic. Aceeasi aplicatie si acelasi server; paginile unui candidat
 # din exemple se redau ca oricare, apoi legaturile lui raman in exemple, iar campurile si butoanele nu se apasa.
-# Rapoartele se scot. candidaturi/ nu se atinge. rapoarte/propunere-exemple-in-aplicatie.md, „Refăcut”
+# Rapoartele se scot. candidaturi/ nu se atinge.
 EXEMPLE_STARE = {"se_reface": False, "eroare": None}
 _LACAT_EXEMPLE = threading.Lock()
 RAPOARTE_CANDIDAT = ("raport", "rezumat", "audit", "audit_scurt")  # in exemple, fara campuri blocate: se tiparesc

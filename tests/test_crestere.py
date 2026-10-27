@@ -1,5 +1,5 @@
 """Intrebarea despre cresterea proiectului: regula pe drumul in timp (fereastra de 14 zile, nu fractie din istoric) si
-locul ei in partea IV, intre intrebarile din goluri si cea de legare (rapoarte/plan-legare-si-crestere.md)."""
+locul ei in partea IV, intre intrebarile din goluri si cea de legare."""
 from harnesscraft import candidati, formular, pasi, tintite
 
 REGULI = "# Reguli\n\n## Comenzi\n\n- `pytest -q` inainte de fiecare salvare\n"
