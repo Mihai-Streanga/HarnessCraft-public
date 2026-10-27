@@ -1,0 +1,134 @@
+{
+ "parte": 33.3,
+ "maxim": 100,
+ "interviul_maxim": 4,
+ "plafon_fara_cod": 66.7,
+ "candidati": [
+  {
+   "tip": 1,
+   "nume": "Mihai Streanga",
+   "treapta": 4,
+   "treapta_nume": "metodolog",
+   "fisa": 14.0,
+   "fisa_maxim": 16.0,
+   "interviul": 4.0,
+   "proba": {
+    "cheia": 100,
+    "conversațiile": 50,
+    "discuția": 100
+   },
+   "puncte": {
+    "portofoliul": 29.2,
+    "interviul": 33.3,
+    "proba": 27.8
+   },
+   "total": 90.3,
+   "complet": true
+  },
+  {
+   "tip": 2,
+   "nume": "Elena Dobrescu",
+   "treapta": null,
+   "treapta_nume": null,
+   "fisa": null,
+   "fisa_maxim": null,
+   "interviul": 4.0,
+   "proba": {
+    "cheia": 80,
+    "conversațiile": 75,
+    "discuția": 100
+   },
+   "puncte": {
+    "portofoliul": 0.0,
+    "interviul": 33.3,
+    "proba": 28.3
+   },
+   "total": 61.7,
+   "complet": true
+  },
+  {
+   "tip": 3,
+   "nume": "Andrei Costache",
+   "treapta": 2,
+   "treapta_nume": "configurator",
+   "fisa": 8.0,
+   "fisa_maxim": 16.0,
+   "interviul": 4.0,
+   "proba": {
+    "cheia": 40,
+    "conversațiile": 25,
+    "discuția": 33
+   },
+   "puncte": {
+    "portofoliul": 16.7,
+    "interviul": 33.3,
+    "proba": 10.9
+   },
+   "total": 60.9,
+   "complet": true
+  },
+  {
+   "tip": 4,
+   "nume": "Ioana Vlădescu",
+   "treapta": 1,
+   "treapta_nume": "prompter",
+   "fisa": 3.0,
+   "fisa_maxim": 16.0,
+   "interviul": 3.57,
+   "proba": {
+    "cheia": 100,
+    "conversațiile": 100,
+    "discuția": 100
+   },
+   "puncte": {
+    "portofoliul": 6.2,
+    "interviul": 28.6,
+    "proba": 33.3
+   },
+   "total": 68.1,
+   "complet": true
+  },
+  {
+   "tip": 5,
+   "nume": "Victor Matei",
+   "treapta": 4,
+   "treapta_nume": "metodolog",
+   "fisa": 16.0,
+   "fisa_maxim": 16.0,
+   "interviul": 4.0,
+   "proba": {
+    "cheia": 20,
+    "conversațiile": 0,
+    "discuția": 0
+   },
+   "puncte": {
+    "portofoliul": 33.3,
+    "interviul": 33.3,
+    "proba": 2.2
+   },
+   "total": 68.9,
+   "complet": true
+  },
+  {
+   "tip": 6,
+   "nume": "Cristina Pavel",
+   "treapta": 3,
+   "treapta_nume": "constructor de sistem",
+   "fisa": 10.0,
+   "fisa_maxim": 16.0,
+   "interviul": 3.0,
+   "proba": {
+    "cheia": null,
+    "conversațiile": null,
+    "discuția": null
+   },
+   "puncte": {
+    "portofoliul": 20.8,
+    "interviul": 22.2,
+    "proba": null
+   },
+   "total": 43.1,
+   "complet": false
+  }
+ ]
+}

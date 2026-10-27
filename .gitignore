@@ -1,0 +1,65 @@
+# ——— Ce acumulează sistemul ———
+__pycache__/
+*.pyc
+.venv/
+venv/
+node_modules/
+
+# ——— Temporare: intră aici în aceeași tură în care sunt create ———
+# fara bara la capat: prinde si foldere, si fisiere
+tmp-*
+*.tmp
+
+# ——— Ale mașinii, nu ale proiectului ———
+.claude/settings.local.json
+.env
+
+# ——— Plasa pentru depozitul care pleacă pe GitHub (4.7): o cheie apare fără să anunțe ———
+*.pem
+*.key
+*.p12
+*.pfx
+credentials*.json
+client_secret*.json
+token*.json
+env/
+build/
+dist/
+*.egg-info/
+.pytest_cache/
+logs/
+*.db
+*.sqlite
+*.sqlite3
+*.bak
+*.backup
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+
+# ——— Date brute ———
+# preventiv: clonele proiectelor evaluate (încă neaduse); se refac din manifest, la commit-ul fixat acolo
+depozite/
+depozite-runda2/
+depozite-romana/
+depozite-limite/
+depozite-powershell/
+# runda pe chei: clonele si gasirile, cu valorile lor (publice, dar nu ies din depozit)
+depozite-chei/
+# Extrasul curat rămâne în git; materia primă nu.
+
+# ——— NU se ignoră ———
+# .claude/settings.json      — configurare de proiect, circulă cu depozitul
+# .claude/skills/            — metoda, circulă cu depozitul
+# .claude/hooks/             — regulile impuse determinist
+# .claude/*.py               — uneltele de măsură
+
+# datele candidatilor din interfata: oameni reali, raman pe calculator (candidati/: locul de dinainte de 15 octombrie,
+# preventiv, daca o versiune veche il recreeaza)
+candidaturi/
+candidati/
+
+# fisierele de blocare ale Office, cat e deschis un xlsx (preventiv)
+~$*

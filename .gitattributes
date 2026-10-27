@@ -1,0 +1,4 @@
+# Hook-urile de commit sunt scripturi sh: cu CRLF mor tacut pe Windows.
+.claude/hook-commit/* text eol=lf
+# Cheia probei: amprenta (sha256) e pe octeti; CRLF la extragere ar schimba-o.
+proba/*/cheia.* text eol=lf

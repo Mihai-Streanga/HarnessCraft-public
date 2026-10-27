@@ -1,0 +1,280 @@
+/* HarnessCraft. Aspectul e preluat din SkyRoll: culorile, fonturile, bara laterala. Fonturile stau in proiect
+   (fonturi/, licentele OFL alaturi): pagina nu cere nimic de pe internet. */
+@font-face { font-family: "Public Sans"; src: url("fonturi/PublicSans-latin.woff2") format("woff2");
+  font-weight: 400 700; unicode-range: U+0000-00FF, U+2000-206F, U+20AC, U+2122, U+2212; }
+@font-face { font-family: "Public Sans"; src: url("fonturi/PublicSans-latin-ext.woff2") format("woff2");
+  font-weight: 400 700; unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+1E00-1EFF; }
+@font-face { font-family: "IBM Plex Mono"; src: url("fonturi/IBMPlexMono-400-latin.woff2") format("woff2");
+  font-weight: 400; unicode-range: U+0000-00FF, U+2000-206F; }
+@font-face { font-family: "IBM Plex Mono"; src: url("fonturi/IBMPlexMono-400-latin-ext.woff2") format("woff2");
+  font-weight: 400; unicode-range: U+0100-02BA, U+02BD-02FF, U+1E00-1EFF; }
+
+:root {
+  /* Culoarea de baza: rodiu (decizia autorului, 14 oct. 2026: albastrul semana cu al altor aplicatii). */
+  --fundal-pagina:#FBF6F7; --fundal-card-activ:#FBEDEF; --chenar-card-activ:#F0C6CE;
+  --fundal-card:#FFFFFF; --chenar:#F0E3E6; --accent:#A3324A; --accent-hover:#8A2A3E;
+  --brand-inchis:#5A1B28; --brand-deschis:#D98C9B; --text:#2A2326; --text-secundar:#6A5A60;
+  --text-estompat:#A8959B; --badge-activ-bg:#E1F1E8; --badge-activ-text:#2C7A52;
+  --badge-dev-bg:#F2EEEF; --badge-dev-text:#85777C; --avert-bg:#FBF3DA; --avert-text:#8A6D1A;
+  --avert-chenar:#EAD9A0; --risc-text:#B4453C; --risc-chenar:#EBD3D0;
+  --ghost-bg:#FDF7F8; --ghost-chenar:#F0D3D9; --ghost-bg-hover:#FAEBEE;
+  --nav-activ:#F7E1E5; --subtitlu:#C48F9B; --umbra:rgba(42, 35, 38, 0.18); --umbra-fundal:rgba(42, 35, 38, 0.25);
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+/* locul barei de derulare, pastrat si pe paginile scurte: marginea dreapta nu sare de la un ecran la altul */
+html { scrollbar-gutter: stable; }
+/* body creste cu continutul: bara laterala (sticky) ramane pe loc la derulare, nu urca odata cu body */
+body { display: flex; align-items: flex-start; min-height: 100vh; background: var(--fundal-pagina); color: var(--text);
+  font-size: 15px; line-height: 1.55; font-family: "Public Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+input, textarea, button { font: inherit; color: inherit; }
+code, pre { font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 0.86em; }
+a { color: var(--accent); }
+
+/* ── Bara laterala ── */
+.bara { width: 270px; flex: none; background: #fff; border-right: 1px solid var(--chenar); padding: 1.6rem 1rem 1rem;
+  display: flex; flex-direction: column; gap: 0.35rem; position: sticky; top: 0; height: 100vh; overflow-y: auto; }
+.logo { font-size: 2rem; font-weight: 800; color: var(--brand-inchis); letter-spacing: -1.5px; line-height: 1.1;
+  text-decoration: none; padding: 0 0.4rem; }
+.logo span { color: var(--brand-deschis); }
+.subtitlu { font-size: 0.68rem; color: var(--subtitlu); letter-spacing: 0.14em; text-transform: uppercase;
+  margin: 0 0.4rem 1.3rem; }
+.nav, .pas { display: flex; align-items: center; gap: 0.6rem; padding: 0.5rem 0.9rem; border-radius: 8px;
+  color: var(--brand-inchis); font-weight: 600; text-decoration: none; border: 1px solid transparent; }
+.nav:hover, .pas:hover { background: var(--ghost-bg-hover); }
+.nav.activ, .pas.activ { background: var(--nav-activ); border-color: var(--chenar-card-activ); color: var(--text); }
+.pas { font-weight: 500; }
+.pas.blocat { color: var(--text-estompat); }
+.sectiune { margin: 1rem 0 0.3rem; padding: 1rem 0.9rem 0.2rem; border-top: 1px solid var(--chenar); font-weight: 700;
+  color: var(--brand-inchis); overflow-wrap: anywhere; }
+.semn { width: 1.5rem; height: 1.5rem; flex: none; border-radius: 50%; display: grid; place-items: center;
+  font-size: 0.8rem; font-weight: 700; background: var(--badge-dev-bg); color: var(--badge-dev-text); }
+.semn.gata { background: var(--badge-activ-bg); color: var(--badge-activ-text); }
+.semn.in-lucru, .semn.de-facut { background: var(--fundal-card-activ); color: var(--accent); }
+.spatiu { flex: 1; }
+.subsol { font-family: "IBM Plex Mono", monospace; font-size: 0.68rem; color: var(--text-estompat); padding: 0 0.9rem; }
+
+/* ── Continutul ── */
+main { flex: 1; min-width: 0; padding: 2rem 2.6rem 3rem; max-width: 1100px; }
+h1 { font-size: 2rem; font-weight: 700; color: var(--brand-inchis); letter-spacing: -0.5px; margin: 0 0 1rem; }
+h2 { font-size: 1.25rem; color: var(--brand-inchis); margin: 2rem 0 0.6rem; }
+h3 { font-size: 1.05rem; color: var(--brand-inchis); margin: 1.4rem 0 0.4rem; }
+.estompat, .motiv, .indiciu { color: var(--text-secundar); }
+.nota-mica { color: var(--text-estompat); font-size: 0.85rem; }
+.antet .supratitlu { color: var(--text-secundar); font-size: 0.9rem; margin-bottom: 0.3rem; }
+.rand-titlu { display: flex; align-items: center; justify-content: space-between; }
+.eticheta { display: inline-block; padding: 0.1rem 0.55rem; border-radius: 999px; font-size: 0.75rem; font-weight: 600; }
+.eticheta.demo { background: var(--avert-bg); color: var(--avert-text); }
+
+/* ── Butoane ── */
+.buton { display: inline-block; background: var(--accent); color: #fff; border: 1px solid var(--accent);
+  border-radius: 8px; padding: 0.6rem 1.3rem; font-weight: 600; cursor: pointer; text-decoration: none; }
+.buton:hover { background: var(--accent-hover); }
+.buton.secundar { background: var(--ghost-bg); color: var(--brand-inchis); border-color: var(--ghost-chenar); }
+.buton.secundar:hover { background: var(--ghost-bg-hover); }
+.buton:disabled { background: var(--badge-dev-bg); color: var(--badge-dev-text); border-color: var(--chenar);
+  cursor: not-allowed; }
+.formular .buton { justify-self: start; }
+/* butoanele unui ecran care stau unele sub altele (proba): aceeasi latime, ca sa nu para fiecare de alt fel */
+.buton.lat { min-width: 15rem; text-align: center; }
+.actiune { display: flex; align-items: center; gap: 1rem; margin: 1rem 0 1.4rem; flex-wrap: wrap; }
+/* doua butoane-pereche, unul langa altul (Candidatura): aceeasi latime; ce face fiecare, sub ele */
+.pereche { margin-bottom: 0.4rem; } .pereche .buton.lat { min-width: 17rem; }
+.ce-face { margin: 0 0 1.4rem; padding-left: 1.2rem; }
+
+/* ── Cutii ── */
+.ajutor { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; background: var(--fundal-card);
+  border: 1px solid var(--chenar); border-radius: 12px; padding: 1rem 1.2rem; margin-bottom: 1rem; }
+.ajutor b { display: block; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em;
+  color: var(--text-estompat); margin-bottom: 0.2rem; }
+/* casetele de stare, doua (B29): galbena („avert”), cand lipseste ceva sau nu se poate schimba; cu chenar, simpla, pentru
+   o stare hotarata (proba refuzata, fara proiect cu cod, candidatura finalizata); rosie numai pentru eroare */
+.cutie { border-radius: 10px; padding: 0.8rem 1rem; margin-bottom: 1rem; border: 1px solid; }
+.cutie.eroare { background: #FBEFEE; border-color: var(--risc-chenar); color: var(--risc-text); }
+.cutie.avert { background: var(--avert-bg); border-color: var(--avert-chenar); color: var(--avert-text); }
+.urmator { margin-top: 2.4rem; padding: 1rem 1.2rem; background: var(--fundal-card-activ);
+  border: 1px solid var(--chenar-card-activ); border-radius: 12px; font-weight: 600; }
+.urmator { display: flex; align-items: center; gap: 1rem; }
+.urmator a { text-decoration: none; }
+.gol { background: #fff; border: 1px dashed var(--chenar-card-activ); border-radius: 12px; padding: 2rem;
+  text-align: center; }
+
+/* ── Acasa: ce face programul, cei patru pasi, candidatii in lucru ── */
+.intro { font-size: 1.05rem; max-width: 46rem; color: var(--text-secundar); margin: 0 0 1rem; }
+.pasi-acasa { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1rem; margin: 0 0 1.5rem; }
+.pas-acasa { background: #fff; border: 1px solid var(--chenar); border-radius: 12px; padding: 1rem 1.1rem; }
+.pas-acasa b { display: block; color: var(--brand-inchis); font-size: 1.05rem; margin-top: 0.5rem; }
+.pas-acasa p { margin: 0.3rem 0 0; color: var(--text-secundar); font-size: 0.9rem; }
+
+/* ── Carduri si cifre ── */
+.carduri { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1rem; }
+.card { display: block; background: #fff; border: 1px solid var(--chenar); border-radius: 12px; padding: 1rem 1.2rem;
+  text-decoration: none; color: var(--text); }
+.card:hover { border-color: var(--chenar-card-activ); background: var(--fundal-card-activ); }
+.card-nume { font-weight: 700; font-size: 1.1rem; color: var(--brand-inchis); }
+.card-cale { color: var(--text-secundar); font-size: 0.85rem; overflow-wrap: anywhere; }
+.card-pas { margin-top: 0.6rem; color: var(--accent); font-weight: 600; font-size: 0.9rem; }
+.card-text { background: #fff; border: 1px solid var(--chenar); border-radius: 12px; padding: 0.4rem 1.4rem 1rem; }
+.cifre { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1rem; margin: 1rem 0; }
+.cifra { background: #fff; border: 1px solid var(--chenar); border-radius: 12px; padding: 0.9rem 1.2rem; }
+.cifra span { display: block; font-size: 0.78rem; color: var(--text-estompat); text-transform: uppercase;
+  letter-spacing: 0.06em; }
+.cifra b { display: block; font-size: 1.5rem; color: var(--brand-inchis); }
+/* numele treptei, pe un rand (B22): „constructor de sistem” intra intr-un card ingust numai cu litera mai mica */
+.cifra b.treapta { font-size: 1.1rem; line-height: 2.2rem; white-space: nowrap; }
+.cifra i { font-style: normal; font-size: 0.82rem; color: var(--text-secundar); }
+/* pasul 1: eticheta ia tot locul de sus, ca cifrele de pe un rand sa stea la aceeasi inaltime oricat de lunga e ea (B23) */
+.cifre.aliniate .cifra { display: flex; flex-direction: column; } .cifre.aliniate .cifra span { flex: 1 0 auto; }
+.parti { display: grid; gap: 0.6rem; max-width: 640px; }
+.parte { display: grid; grid-template-columns: 110px 1fr 120px; align-items: center; gap: 0.8rem; }
+.bara-progres { height: 10px; background: var(--badge-dev-bg); border-radius: 999px; overflow: hidden; }
+.bara-progres i { display: block; height: 100%; background: var(--accent); }
+
+/* ── Ce se deschide la un clic: dovezile, drumul, ce a scris candidatul ── */
+details.pliat { margin: 1rem 0; background: #fff; border: 1px solid var(--chenar); border-radius: 12px; }
+details.pliat > summary { cursor: pointer; padding: 0.8rem 1.2rem; font-weight: 600; color: var(--brand-inchis); }
+details.pliat > summary:hover { background: var(--ghost-bg-hover); border-radius: 12px; }
+details.pliat[open] > summary { border-bottom: 1px solid var(--chenar); }
+details.pliat > :not(summary) { margin: 0.8rem 1.2rem; }
+details.pliat > .card-text, details.pliat > table { border: 0; margin: 0; }
+
+/* ── Proba, ce a mai predat: doua casete alaturi, cu legaturile salvate dedesubt ── */
+.predate { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1rem; margin: 0.6rem 0 1rem; }
+.caseta-predata { display: grid; gap: 0.6rem; align-content: start; background: #fff; border: 1px solid var(--chenar);
+  border-radius: 12px; padding: 1rem 1.2rem; }
+.caseta-predata h3 { margin: 0; } .caseta-predata .actiune { margin: 0.2rem 0 0; }
+.linkuri { margin: 0; padding-left: 1.2rem; overflow-wrap: anywhere; } .linkuri:empty { display: none; }
+td details summary { cursor: pointer; color: var(--accent); font-weight: 600; }
+
+/* ── Tabele ── */
+table { border-collapse: collapse; width: 100%; background: #fff; border: 1px solid var(--chenar); border-radius: 10px;
+  overflow: hidden; font-size: 0.9rem; }
+th, td { text-align: left; padding: 0.5rem 0.7rem; border-bottom: 1px solid var(--chenar); vertical-align: top; }
+th { background: var(--ghost-bg); color: var(--brand-inchis); font-weight: 600; }
+table.note { max-width: 48rem; } table.note td:first-child { width: 2.5rem; }
+table.note th:last-child, table.note td:last-child { width: 8rem; text-align: center; }
+table.drumul td:not(:last-child) { white-space: nowrap; }
+
+/* ── Formulare ── */
+.formular { display: grid; gap: 1rem; max-width: 640px; background: #fff; border: 1px solid var(--chenar);
+  border-radius: 12px; padding: 1.4rem; }
+label { display: grid; gap: 0.3rem; font-weight: 600; color: var(--brand-inchis); }
+label.bifa { display: flex; gap: 0.6rem; align-items: flex-start; font-weight: 400; color: var(--text); }
+input:not([type]), input[type=text], input[type=search], input[type=date], textarea, select { border: 1px solid var(--ghost-chenar); border-radius: 8px;
+  padding: 0.55rem 0.7rem; background: #fff; font-weight: 400; color: var(--text); width: 100%; }
+/* cautarea candidatilor: casuta si butonul pe un rand, deasupra grupurilor */
+.cautare { display: flex; align-items: center; gap: 0.8rem; margin: 0.4rem 0 1.2rem; }
+.cautare .buton { line-height: 1.5; white-space: nowrap; }
+.cautare input { flex: 1; }
+.alege-fisier { position: relative; }
+.alege-fisier input { position: absolute; inset: 0; width: 100%; opacity: 0; cursor: pointer; }
+input:focus, textarea:focus, select:focus { outline: 2px solid var(--brand-deschis); border-color: var(--accent); }
+/* listele, casetele si butoanele radio: ale aplicatiei, nu albastrul browserului (decizii-audit-unic.md, B17) */
+select { min-width: 11rem; font: inherit; cursor: pointer; }
+input[type=checkbox], input[type=radio] { accent-color: var(--accent); }
+/* casutele de bifat raman casute (alt rol decat „da / nu”), la marimea textului aplicatiei (B20) */
+input[type=checkbox] { width: 1.1rem; height: 1.1rem; margin: 0; flex: none; }
+/* campul la care se refera eroarea (B26) */
+.camp-gresit { border-color: var(--risc-text) !important; outline: 2px solid var(--risc-chenar); }
+.alege-proiect { margin-top: -0.4rem; }
+.ce-e-treapta { margin: 0.2rem 0 1rem; }
+.indiciu { font-weight: 400; font-size: 0.85rem; }
+.interviu { display: grid; gap: 0.5rem; }
+.text-ghid { background: transparent; }
+.text-ghid h2 { margin-top: 1.8rem; }
+.rand-bifa { display: grid; grid-template-columns: 1fr auto; gap: 0.8rem; align-items: center; background: #fff;
+  border: 1px solid var(--chenar); border-radius: 10px; padding: 0.5rem 0.8rem; }
+.optiuni { display: flex; gap: 0.3rem; }
+.opt { display: block; }
+.opt input { position: absolute; opacity: 0; }
+.opt span { display: inline-block; min-width: 3rem; text-align: center; padding: 0.3rem 0.6rem; border-radius: 8px;
+  border: 1px solid var(--ghost-chenar); background: var(--ghost-bg); color: var(--brand-inchis); font-weight: 600;
+  cursor: pointer; }
+.opt input:checked + span { background: var(--accent); border-color: var(--accent); color: #fff; }
+.opt input[value=nu]:checked + span { background: var(--brand-inchis); border-color: var(--brand-inchis); }
+.opt input[value=""]:checked + span { background: var(--badge-dev-bg); color: var(--badge-dev-text); border-color: var(--chenar); }
+.opt input:focus-visible + span { outline: 2px solid var(--brand-deschis); }
+.camp { font-weight: 600; font-size: 0.85rem; color: var(--text-secundar); }
+.salvare { position: sticky; bottom: 0; display: flex; gap: 1rem; align-items: center; padding: 0.8rem 0;
+  background: var(--fundal-pagina); }
+.stare-salvare { color: var(--text-secundar); }
+.stare-salvare.eroare { color: var(--risc-text); }
+blockquote { margin: 0.4rem 0; padding: 0.4rem 0.9rem; border-left: 3px solid var(--brand-deschis); color: var(--text-secundar); }
+
+/* Fereastra „Cum folosesc” (atributul popover), dupa modelul din SkyRoll: explicatiile stau dupa un buton. */
+/* titlul si butonul de langa el, pe acelasi ax, pe toate ecranele (nu numai la pasi) */
+.rand-titlu { gap: 1rem; margin-bottom: 1rem; } .rand-titlu h1 { margin: 0; }
+.buton-info { display: inline-flex; align-items: center; gap: 0.5rem; white-space: nowrap; }
+.semn-info { width: 1.15rem; height: 1.15rem; border-radius: 50%; border: 1.5px solid currentColor; display: grid;
+  place-items: center; font-size: 0.75rem; font-weight: 700; line-height: 1; }
+.fereastra { max-width: 36rem; max-height: 80vh; overflow: auto; margin: 4rem auto auto; padding: 1.2rem 1.4rem;
+  border: 1px solid var(--chenar); border-radius: 12px; background: #fff; color: var(--text);
+  box-shadow: 0 12px 40px var(--umbra); }
+.fereastra::backdrop { background: var(--umbra-fundal); }
+.fereastra ol { padding-left: 1.2rem; } .fereastra li { margin-bottom: 0.4rem; }
+.fereastra-cap { display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; }
+.fereastra-cap h2 { margin: 0 0 0.6rem; font-size: 1.15rem; }
+.fereastra .inchide { background: none; border: 0; font-size: 1.4rem; line-height: 1; cursor: pointer;
+  color: var(--text-secundar); }
+.fereastra .la-manual { margin-top: 1rem; font-size: 0.9rem; }
+
+/* Textele de citit (manualul, raportul, ferestrele „Cum folosesc”): ca un document in limba romana, aliniat la stanga si
+   la dreapta, cu alineat la inceputul paragrafului (cerut de autor); despartirea in silabe evita golurile dintre cuvinte. */
+body.document main p, body.document main li, body.raport main p, body.raport main li, .fereastra p, .fereastra li {
+  text-align: justify; hyphens: auto; }
+body.document main p, body.raport main p:not(.r-demo):not(.r-marca), .fereastra > p:not(.la-manual) { text-indent: 1.5em; }
+
+/* Capturile din manual: ecranul, pe latimea textului (si a foii, la tipar), cu legenda sub el. */
+.captura { margin: 0.75rem 0 1rem; break-inside: avoid; }
+.captura img { display: block; width: 100%; height: auto; border: 1px solid var(--chenar); border-radius: 8px; }
+.captura figcaption { margin-top: 0.4rem; color: var(--text-secundar); font-size: 0.85rem; }
+
+/* Raportul pentru dosar: pe ecran, cu bara laterala; la tipar, numai foaia. */
+body.raport main { max-width: 56rem; margin: 0 auto; background: #fff; border: 1px solid var(--chenar); border-width: 0 1px;
+  min-height: 100vh; }
+.r-unelte { display: flex; flex-wrap: wrap; gap: 0.6rem; align-items: center; margin-bottom: 1.5rem; }
+/* butoanele barei nu-si rup textul: daca nu incap, bara trece pe al doilea rand, fiecare buton cu inaltimea lui (B14) */
+.r-unelte .buton { white-space: nowrap; }
+.r-cap { border-bottom: 2px solid var(--accent); padding-bottom: 1rem; margin-bottom: 1rem; }
+.r-marca { color: var(--text-secundar); font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase; }
+.r-date th, .r-tabel th { text-align: left; font-weight: 600; padding: 0.3rem 1rem 0.3rem 0; vertical-align: top;
+  width: 14rem; }
+.r-tabel { width: 100%; border-collapse: collapse; }
+/* in raport, eticheta din stanga fara fundal: fundalul se oprea la marginea coloanei si lasa alb alaturi */
+body.raport th { background: none; color: var(--brand-inchis); }
+.r-tabel td, .r-tabel th { border-bottom: 1px solid var(--chenar); padding: 0.4rem 0.6rem 0.4rem 0; vertical-align: top; }
+.r-intrebari th { width: auto; } .r-intrebari th:first-child, .r-intrebari td:first-child { width: 2rem; } .r-nota { text-align: center; font-weight: 700; width: 5rem; }
+.r-total th, .r-total td { font-weight: 700; } .r-linie { border-bottom: 1px solid var(--text-secundar); width: 18rem; }
+.r-mic { color: var(--text-secundar); font-size: 0.85rem; } .r-demo { background: var(--avert-bg); color: var(--avert-text);
+  padding: 0.4rem 0.7rem; border-radius: 8px; }
+@media print { .r-unelte, .r-ales, body.raport .bara { display: none; } body.raport { display: block; background: #fff; }
+  body.raport main { padding: 0; border: 0; max-width: none; min-height: 0; } h2 { break-after: avoid; }
+  .r-tabel tr { break-inside: avoid; } }
+
+/* Rapoarte: intai pe cine (filtrele, apoi bifa pe fiecare), apoi ce raport; documentul, un candidat pe pagina noua. */
+.filtre { display: flex; flex-wrap: wrap; align-items: flex-end; gap: 0.8rem 1rem; margin: 0.4rem 0 1.2rem; }
+.filtre .camp { display: flex; flex-direction: column; gap: 0.3rem; }
+/* cautarea si listele, aceeasi inaltime: marginile de sus pe o linie (B19) */
+.filtre input, .filtre select { height: 2.4rem; box-sizing: border-box; font: inherit; }
+.lista-alegeri { display: flex; flex-direction: column; gap: 0.2rem; margin: 0.4rem 0 1rem; }
+/* bifa, numele intr-o coloana de latime fixa, descrierea aliniata (B18); pe ecran ingust, descrierea sub nume */
+.alegere { display: grid; grid-template-columns: auto 13rem 1fr; align-items: baseline; gap: 0.6rem;
+  padding: 0.45rem 0.6rem; border-radius: 8px; cursor: pointer; }
+.alegere .nume-ales { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.alegere.toti { grid-template-columns: auto 1fr; }
+@media (max-width: 900px) { .alegere { grid-template-columns: auto 1fr; } .alegere .estompat { grid-column: 2; } }
+.alegere:hover { background: var(--fundal-pagina); }
+.alegere.toti { margin-top: 0.4rem; }
+.r-candidat + .r-candidat { margin-top: 3rem; padding-top: 2rem; border-top: 2px dashed var(--chenar); }
+.r-jurnal th:first-child, .r-jurnal td:first-child { width: 10rem; white-space: nowrap; }
+.r-jurnal th:nth-child(2), .r-jurnal td:nth-child(2) { width: 7rem; }
+@media print { .r-candidat + .r-candidat { break-before: page; margin-top: 0; padding-top: 0; border-top: 0; } }
+textarea.invitatie { width: 100%; border: 1px solid var(--ghost-chenar); border-radius: 8px; padding: .75rem;
+  background: var(--fundal-card-activ); line-height: 1.5; }
+
+/* Lista celor alesi: tabelele pe meserii, cu aceleasi latimi de coloana, ca acelasi fel sa stea pe o linie (B11) */
+table.r-lista { table-layout: fixed; }
+table.r-lista col.c-stare { width: 6rem; } table.r-lista col.c-treapta { width: 10.5rem; }
+table.r-lista col.c-port { width: 6rem; } table.r-lista col.c-interviu { width: 5.5rem; }
+table.r-lista col.c-proba { width: 7.5rem; } table.r-lista col.c-total { width: 5rem; }
+table.r-lista th { width: auto; }

@@ -1,0 +1,168 @@
+{
+  "meseria": "salarizare",
+  "titlu": "Statul de plată, septembrie 2026",
+  "stare_bife": "aprobate de autor una câte una pe 15 octombrie 2026, neîncercate pe candidați",
+  "durata": "cel mult 2 ore",
+  "termen": "3 zile",
+  "tema": [
+    [
+      "statul de plată",
+      "Stat_Exemplu_Distributie_SRL_2026-09.xlsx"
+    ],
+    [
+      "tabelul de răspuns, gol",
+      "Raspuns.xlsx"
+    ],
+    [
+      "mesajul pentru candidat",
+      "Mesaj_pentru_candidat.txt"
+    ]
+  ],
+  "raspuns": [
+    "Marca",
+    "Coloana",
+    "Valoarea din stat",
+    "Valoarea corecta",
+    "De ce"
+  ],
+  "cheia": {
+    "loc": "marca"
+  },
+  "locuri": [
+    [
+      1001,
+      "Adamescu Adam"
+    ],
+    [
+      1002,
+      "Barbulescu Barbu"
+    ],
+    [
+      1003,
+      "Constantinescu Constantin"
+    ],
+    [
+      1004,
+      "Dumitrescu Dumitru"
+    ],
+    [
+      1005,
+      "Enache Elena"
+    ],
+    [
+      1006,
+      "Florescu Florin"
+    ],
+    [
+      1007,
+      "Georgescu George"
+    ],
+    [
+      1008,
+      "Haiducu Horia"
+    ],
+    [
+      1009,
+      "Ionescu Ion"
+    ],
+    [
+      1010,
+      "Jitaru Julia"
+    ],
+    [
+      1011,
+      "Kovacs Katalin"
+    ],
+    [
+      1012,
+      "Lungu Laura"
+    ],
+    [
+      1013,
+      "Marinescu Marin"
+    ],
+    [
+      1014,
+      "Nicolescu Nicoleta"
+    ],
+    [
+      1015,
+      "Olteanu Oana"
+    ],
+    [
+      1016,
+      "Popescu Petru"
+    ],
+    [
+      1017,
+      "Radulescu Radu"
+    ],
+    [
+      1018,
+      "Stanescu Stefan"
+    ],
+    [
+      1019,
+      "Tudorache Tudor"
+    ],
+    [
+      1020,
+      "Ursu Ursula"
+    ],
+    [
+      1021,
+      "Vasilescu Vasile"
+    ],
+    [
+      1022,
+      "Zamfirescu Zamfir"
+    ]
+  ],
+  "campuri": [
+    "Luna",
+    "Anul",
+    "Marca",
+    "Nume",
+    "Prenume",
+    "Norma",
+    "Zile lucratoare in luna",
+    "Ore lucratoare in luna, conf. norma",
+    "Salariu brut lei",
+    "Ore Lucrate",
+    "Suma Ore Lucrate",
+    "Ore suplimentare",
+    "Suma ore suplimentare",
+    "Bonus",
+    "Venit brut realizat",
+    "Nr Tichete masa",
+    "Tichete de masa",
+    "Suma 300 lei netaxabila",
+    "Baza CAS Angajat",
+    "CAS Angajat",
+    "Baza CASS Angajat",
+    "CASS Angajat",
+    "Venit net",
+    "Deducere personala",
+    "Baza calcul impozit",
+    "Impozit",
+    "Salariu net",
+    "Avans chenzinal suma",
+    "Rest plata"
+  ],
+  "cuvinte": {
+    "materialul": "statul",
+    "regulile": "regulile lunii",
+    "e_corect": "statul e corect",
+    "sursa": "o cotă sau un plafon",
+    "sursa_unde": "legea, articolul",
+    "unealta": "un program care recalculează statul",
+    "la_material": "la stat",
+    "in_material": "în stat",
+    "locul": "Angajatul",
+    "tema_pe_scurt": "un stat de plată de verificat cu AI-ul", "unitate": "lei"
+  },
+  "discutia_2": [
+    "Cum ai aflat cât e, în septembrie 2026, suma care nu se impozitează la salariul minim?",
+    "numește o sursă oficială (ordonanța, Monitorul Oficial, legislatie.just.ro, ANAF), nu „mi-a spus AI-ul” sau „știam”"
+  ]
+}

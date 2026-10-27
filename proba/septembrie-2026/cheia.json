@@ -1,0 +1,109 @@
+{
+  "luna": "2026-09",
+  "firma": "Exemplu Distributie SRL",
+  "erori_de_gasit": 5,
+  "erori": [
+    {
+      "cod": "E1",
+      "marca": 1011,
+      "nume": "Kovacs Katalin",
+      "coloana": "CASS Angajat",
+      "valoare_in_stat": 750,
+      "valoare_corecta": 816,
+      "ce": "CASS calculat fără tichetele de masă; tichetele intră în baza CASS (Codul fiscal, art. 157)",
+      "coloane_afectate": [
+        "Baza CASS Angajat",
+        "CASS Angajat",
+        "Venit net",
+        "Baza calcul impozit",
+        "Impozit",
+        "Salariu net",
+        "Rest plata"
+      ]
+    },
+    {
+      "cod": "E2",
+      "marca": 1013,
+      "nume": "Marinescu Marin",
+      "coloana": "Suma ore suplimentare",
+      "valoare_in_stat": 373,
+      "valoare_corecta": 652,
+      "ce": "orele suplimentare plătite fără sporul de 75% (Codul muncii, art. 123)",
+      "coloane_afectate": [
+        "Suma ore suplimentare",
+        "Venit brut realizat",
+        "Baza CAS Angajat",
+        "CAS Angajat",
+        "Baza CASS Angajat",
+        "CASS Angajat",
+        "Venit net",
+        "Baza calcul impozit",
+        "Impozit",
+        "Salariu net",
+        "Rest plata"
+      ]
+    },
+    {
+      "cod": "E3",
+      "marca": 1014,
+      "nume": "Nicolescu Nicoleta",
+      "coloana": "Rest plata",
+      "valoare_in_stat": 4847,
+      "valoare_corecta": 2847,
+      "ce": "avansul nu e scăzut din restul de plată",
+      "coloane_afectate": [
+        "Rest plata"
+      ]
+    },
+    {
+      "cod": "E4",
+      "marca": 1003,
+      "nume": "Constantinescu Constantin",
+      "coloana": "Suma 300 lei netaxabila",
+      "valoare_in_stat": 200,
+      "valoare_corecta": 0,
+      "ce": "suma netaxabilă acordată deși venitul brut trece de 4.600 lei (OUG 89/2025, art. III)",
+      "coloane_afectate": [
+        "Suma 300 lei netaxabila",
+        "Baza CAS Angajat",
+        "CAS Angajat",
+        "Baza CASS Angajat",
+        "CASS Angajat",
+        "Venit net",
+        "Baza calcul impozit",
+        "Impozit",
+        "Salariu net",
+        "Rest plata"
+      ]
+    },
+    {
+      "cod": "E5",
+      "marca": 1002,
+      "nume": "Barbulescu Barbu",
+      "coloana": "Suma 300 lei netaxabila",
+      "valoare_in_stat": 300,
+      "valoare_corecta": 200,
+      "ce": "300 lei netaxabili, suma din ianuarie–iunie; din iulie 2026 e 200 lei (OUG 89/2025, art. III)",
+      "coloane_afectate": [
+        "Suma 300 lei netaxabila",
+        "Baza CAS Angajat",
+        "CAS Angajat",
+        "Baza CASS Angajat",
+        "CASS Angajat",
+        "Venit net",
+        "Baza calcul impozit",
+        "Impozit",
+        "Salariu net",
+        "Rest plata"
+      ]
+    }
+  ],
+  "plantata_corecta": {
+    "marca": 1001,
+    "nume": "Adamescu Adam",
+    "coloana": "Suma 300 lei netaxabila",
+    "valoare_in_stat": 200,
+    "ce": "200 lei netaxabili, corect pentru septembrie 2026; un model care știe numai forma veche zice 300"
+  },
+  "toleranta_lei": 1
+}

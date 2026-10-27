@@ -1,0 +1,48 @@
+PROBA PRACTICĂ: VERIFICAREA UNUI STAT DE PLATĂ
+
+Bună ziua,
+
+Vă mulțumim că participați la probă. Primiți statul de plată pe septembrie 2026 al unei firme inventate,
+Exemplu Distributie SRL, cu 22 de angajați. Toate numele și sumele sunt inventate.
+
+
+CE AVEȚI DE FĂCUT
+
+Verificați statul și găsiți greșelile de calcul. Pentru fiecare greșeală, completați un rând în Raspuns.xlsx:
+
+- Marca angajatului;
+- Coloana în care începe greșeala (o greșeală se poate vedea și în coloanele calculate după ea: e suficientă prima);
+- Valoarea din stat și valoarea corectă;
+- De ce: pe scurt, regula încălcată și, dacă o aveți, sursa ei.
+
+Scrieți numai ce credeți că e greșit. Un rând corect semnalat ca greșit scade din rezultat. Diferențele de 1 leu care
+vin din rotunjire nu sunt greșeli.
+
+
+CE ȘTIȚI DESPRE FIRMĂ
+
+- Toți angajații au lucrat luna întreagă, cu normă de 8 ore.
+- Niciun angajat nu are persoane în întreținere sau copii pentru care să primească deducere, și toți au peste 26 de ani.
+- Tichetele de masă se acordă numai unei părți dintre angajați. Valoarea lor se vede în stat.
+- Orele suplimentare se plătesc cu sporul minim din lege.
+
+
+CUM LUCRAȚI
+
+- Folosiți inteligența artificială, cum lucrați de obicei. Proba arată cum lucrați cu ea. Puteți lucra numai în
+  chat (ChatGPT, Claude sau altul) sau și cu cod, cum vă e mai la îndemână.
+- Orice altă unealtă sau sursă e permisă. Nu e permis ajutorul altei persoane.
+- Proba e gândită pentru cel mult 2 ore de lucru. Aveți 3 zile să o predați, ca să lucrați când vă convine.
+
+
+CE PREDAȚI
+
+1. Raspuns.xlsx, completat.
+2. Conversațiile cu AI-ul: linkul de partajare al fiecărei conversații (în Claude și ChatGPT: butonul „Share” /
+   „Partajează”) sau textul lor, copiat într-un fișier text. După evaluare puteți opri partajarea.
+3. Dacă ați lucrat și cu cod: dosarul de lucru, cu istoricul git dacă îl aveți.
+4. Câteva rânduri despre cum ați lucrat: cât timp, ce ați verificat și cum.
+
+După predare urmează o discuție scurtă despre cum ați lucrat.
+
+Succes!

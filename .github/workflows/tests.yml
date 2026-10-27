@@ -1,0 +1,29 @@
+name: tests
+
+# Windows, ca proiectul: pornirea, inchiderea taburilor si caseta de eroare sunt ale Windows. Python-ul minim declarat
+# (`requires-python`), ca local sa ramana cel mai nou: cele doua capete. Pe depozitul public ruleaza la fiecare push.
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  tests:
+    runs-on: windows-latest
+    env:
+      PYTHONUTF8: "1"
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      # testele care fac commit-uri in depozite de proba cer un autor; runner-ul n-are
+      - run: |
+          git config --global user.name "ci"
+          git config --global user.email "ci@example.invalid"
+      # ca docs/INSTALARE.md: gitleaks (pasul 2), apoi .venv (pasul 3)
+      - run: choco install gitleaks -y --no-progress
+      - run: python -m venv .venv
+      - run: .venv/Scripts/python -m pip install pytest
+      - run: .venv/Scripts/python -m pytest -q

@@ -1,0 +1,20 @@
+# .gitleaks.toml — se copiaza in radacina proiectului (metoda, 4.7, pasul 3).
+#
+# De ce: `generic-api-key` ia ID-ul unui model drept cheie. Pe Agent 051,
+# `MODEL_TOKENIZATOR = "claude-haiku-4-5-20251001"` a dat 2 gasiri (6 oct. 2026).
+# `gitleaks git .` si `gitleaks dir .` citesc fisierul singure, din radacina.
+#
+# Regulile implicite raman toate; se sare doar secretul care e intreg un ID de model.
+
+[extend]
+useDefault = true
+
+[[allowlists]]
+description = "ID-uri de model Claude (claude-«familie»-«versiune»-«data»)"
+regexTarget = "secret"
+regexes = ['''^claude-[a-z0-9-]+-\d{8}$''']
+
+[[allowlists]]
+description = "Valoarea de proba din teste (tests/test_stare.py): inventata, pusa anume ca sa arate a cheie"
+regexTarget = "secret"
+regexes = ['''^q8Zr2LmP0aKs$''']

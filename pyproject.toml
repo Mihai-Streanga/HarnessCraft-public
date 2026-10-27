@@ -1,0 +1,10 @@
+[project]
+name = "harnesscraft"
+version = "0.1.0"
+requires-python = ">=3.12"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+# `privat`: testul cere ce ramane in depozitul privat (principiile, esantioanele); in copia publica, fara `.claude/`, se
+# sare (tests/conftest.py, rapoarte/plan-copie-publica.md)
+markers = ["privat: cere fisiere care raman in depozitul privat"]
